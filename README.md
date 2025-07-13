@@ -3,6 +3,10 @@
 ## Project Overview
 This is a comprehensive data analysis project examining the San Diego Airbnb market using advanced analytics, predictive modeling, and interactive visualizations. The project provides deep insights into pricing patterns, neighborhood analysis, and market trends.
 
+## 📊 Market Analysis Overview
+
+![San Diego Market Analysis](results/market_analysis_plots.png)
+
 ## 🚀 Features
 
 ### **Modular Architecture**
@@ -98,6 +102,8 @@ san-diego-housing/
 - **Feature Importance**: Identifies key factors affecting pricing decisions
 
 ## 🎯 Key Insights
+
+![Executive Summary Dashboard](results/executive_summary_dashboard.png)
 
 ### **Market Overview**
 - **11,399 clean listings** after outlier removal
