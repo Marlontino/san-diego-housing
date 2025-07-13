@@ -103,7 +103,7 @@ san-diego-housing/
 
 ## 🎯 Key Insights
 
-![Executive Summary Dashboard](results/executive_summary_dashboard.png)
+![Price Analysis Plots](results/price_analysis_plots.png)
 
 ### **Market Overview**
 - **11,399 clean listings** after outlier removal
