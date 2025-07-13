@@ -1,0 +1,12 @@
+{
+  "training_size": 8702,
+  "test_size": 1000,
+  "accuracy_within_20": 29.5,
+  "mean_absolute_error": 85.27889233333332,
+  "r2_score": 0.6875076986269746,
+  "within_10_count": 152,
+  "within_20_count": 295,
+  "within_50_count": 537,
+  "within_100_count": 746,
+  "total_features": 111
+}

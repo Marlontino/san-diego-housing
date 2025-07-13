@@ -1,0 +1,19 @@
+{
+  "mae": 87.50221011506098,
+  "r2_score": 0.6741700846425942,
+  "training_samples": 7761,
+  "test_samples": 1941,
+  "total_features": 111,
+  "top_features": [
+    "bedrooms",
+    "bathrooms",
+    "availability_365",
+    "accommodates",
+    "number_of_reviews",
+    "review_scores_rating",
+    "beds",
+    "neighborhood_Mission Bay",
+    "neighborhood_La Jolla",
+    "neighborhood_Pacific Beach"
+  ]
+}

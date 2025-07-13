@@ -1,0 +1,12 @@
+{
+  "total_listings": 12959,
+  "total_columns": 80,
+  "memory_usage_mb": 57.954365730285645,
+  "avg_price": 706.4571699413996,
+  "median_price": 211.0,
+  "min_price": 9.0,
+  "max_price": 50045.0,
+  "unique_neighborhoods": 102,
+  "unique_room_types": 4,
+  "avg_rating": 4.812911698956781
+}

@@ -1,0 +1,4961 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d7c795685e420bb09f785d8e36351ea1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed; 
+                    top: 10px; right: 10px; width: 250px; height: 250px; 
+                    background-color: white; border:3px solid grey; z-index:9999; 
+                    font-size:14px; padding: 15px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3)">
+        <p><b>Neighborhood Price Legend</b></p>
+        <p><i class="fa fa-map-marker fa-2x" style="color:green"></i> Under $200</p>
+        <p><i class="fa fa-map-marker fa-2x" style="color:yellow"></i> $200-$399</p>
+        <p><i class="fa fa-map-marker fa-2x" style="color:orange"></i> $400-$599</p>
+        <p><i class="fa fa-map-marker fa-2x" style="color:red"></i> $600+</p>
+        </div>
+        
+    
+            <div class="folium-map" id="map_d7c795685e420bb09f785d8e36351ea1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d7c795685e420bb09f785d8e36351ea1 = L.map(
+                "map_d7c795685e420bb09f785d8e36351ea1",
+                {
+                    center: [32.7157, -117.1611],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f60809593ada79531b82e91eb5e1796e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f60809593ada79531b82e91eb5e1796e.addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var marker_d136b07b91eb6c180fbab05ca2e72818 = L.marker(
+                [32.79983241009958, -117.0891798454577],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_f8310b80d016dbd17b6bfd093b4ed9c8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da60e63346ba429bd1259c0a64510274 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70a03fb5f9d06c27c5544e3f1ef98e14 = $(`<div id="html_70a03fb5f9d06c27c5544e3f1ef98e14" style="width: 100.0%; height: 100.0%;">             <b>Allied Gardens</b><br>             Average Price: $228<br>             Average Rating: 4.93/5.0             </div>`)[0];
+                popup_da60e63346ba429bd1259c0a64510274.setContent(html_70a03fb5f9d06c27c5544e3f1ef98e14);
+            
+        
+
+        marker_d136b07b91eb6c180fbab05ca2e72818.bindPopup(popup_da60e63346ba429bd1259c0a64510274)
+        ;
+
+        
+    
+    
+            marker_d136b07b91eb6c180fbab05ca2e72818.bindTooltip(
+                `<div>
+                     Allied Gardens: $228
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d136b07b91eb6c180fbab05ca2e72818.setIcon(icon_f8310b80d016dbd17b6bfd093b4ed9c8);
+            
+    
+            var marker_d31a325f15d53e3569a63098a4e49024 = L.marker(
+                [32.6944054250987, -117.07257977773997],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_cb78a3f838093baf769ba63bca844a73 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9f5a2ac3bf5b66a48f70c8a31edeb964 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_06a5d61a1957a5bb32a43655174b1940 = $(`<div id="html_06a5d61a1957a5bb32a43655174b1940" style="width: 100.0%; height: 100.0%;">             <b>Alta Vista</b><br>             Average Price: $216<br>             Average Rating: 4.91/5.0             </div>`)[0];
+                popup_9f5a2ac3bf5b66a48f70c8a31edeb964.setContent(html_06a5d61a1957a5bb32a43655174b1940);
+            
+        
+
+        marker_d31a325f15d53e3569a63098a4e49024.bindPopup(popup_9f5a2ac3bf5b66a48f70c8a31edeb964)
+        ;
+
+        
+    
+    
+            marker_d31a325f15d53e3569a63098a4e49024.bindTooltip(
+                `<div>
+                     Alta Vista: $216
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d31a325f15d53e3569a63098a4e49024.setIcon(icon_cb78a3f838093baf769ba63bca844a73);
+            
+    
+            var marker_5f2d7992e0627ae170577a304bbf7c81 = L.marker(
+                [32.5823879, -117.00632519999999],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_977fa61b9a6f33e584feef8a2c8db279 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bf80bdf77e0a409620a4e5d2a1b0f617 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_067d499e5dc6bb9b642a68683d216e79 = $(`<div id="html_067d499e5dc6bb9b642a68683d216e79" style="width: 100.0%; height: 100.0%;">             <b>Amphitheater And Water Park</b><br>             Average Price: $67<br>             Average Rating: 4.65/5.0             </div>`)[0];
+                popup_bf80bdf77e0a409620a4e5d2a1b0f617.setContent(html_067d499e5dc6bb9b642a68683d216e79);
+            
+        
+
+        marker_5f2d7992e0627ae170577a304bbf7c81.bindPopup(popup_bf80bdf77e0a409620a4e5d2a1b0f617)
+        ;
+
+        
+    
+    
+            marker_5f2d7992e0627ae170577a304bbf7c81.bindTooltip(
+                `<div>
+                     Amphitheater And Water Park: $67
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5f2d7992e0627ae170577a304bbf7c81.setIcon(icon_977fa61b9a6f33e584feef8a2c8db279);
+            
+    
+            var marker_73cccae6c64c591989d94c788e218fe7 = L.marker(
+                [32.719544767657865, -117.13725967755971],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_c612f302012db05190a775db85696cb1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c226e1fc0dcde58676a15154097efb5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_db868bdfe54b87a5804012875c2a20ce = $(`<div id="html_db868bdfe54b87a5804012875c2a20ce" style="width: 100.0%; height: 100.0%;">             <b>Balboa Park</b><br>             Average Price: $218<br>             Average Rating: 4.84/5.0             </div>`)[0];
+                popup_c226e1fc0dcde58676a15154097efb5c.setContent(html_db868bdfe54b87a5804012875c2a20ce);
+            
+        
+
+        marker_73cccae6c64c591989d94c788e218fe7.bindPopup(popup_c226e1fc0dcde58676a15154097efb5c)
+        ;
+
+        
+    
+    
+            marker_73cccae6c64c591989d94c788e218fe7.bindTooltip(
+                `<div>
+                     Balboa Park: $218
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_73cccae6c64c591989d94c788e218fe7.setIcon(icon_c612f302012db05190a775db85696cb1);
+            
+    
+            var marker_59547aefc5d7952c1e774ae19222f090 = L.marker(
+                [32.6966047860994, -117.13982328342293],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_fb74d9543ab243ad7219d22c46778ac6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3953f136dfc2501a0b57ff68a65bb3ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_52946e75b2c47b492906c5c72ce534df = $(`<div id="html_52946e75b2c47b492906c5c72ce534df" style="width: 100.0%; height: 100.0%;">             <b>Bario Logan</b><br>             Average Price: $205<br>             Average Rating: 4.87/5.0             </div>`)[0];
+                popup_3953f136dfc2501a0b57ff68a65bb3ae.setContent(html_52946e75b2c47b492906c5c72ce534df);
+            
+        
+
+        marker_59547aefc5d7952c1e774ae19222f090.bindPopup(popup_3953f136dfc2501a0b57ff68a65bb3ae)
+        ;
+
+        
+    
+    
+            marker_59547aefc5d7952c1e774ae19222f090.bindTooltip(
+                `<div>
+                     Bario Logan: $205
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_59547aefc5d7952c1e774ae19222f090.setIcon(icon_fb74d9543ab243ad7219d22c46778ac6);
+            
+    
+            var marker_5ed0a9da4d1b4869a91f809f45c751bd = L.marker(
+                [32.82311457141495, -117.21473415383913],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_c8c5a2a7d270d22113ebf90e06522acb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f5cdb7e127d3463d6b1a2747b4cc07c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a8ed61d704733a2ddc880ebb3535342d = $(`<div id="html_a8ed61d704733a2ddc880ebb3535342d" style="width: 100.0%; height: 100.0%;">             <b>Bay Ho</b><br>             Average Price: $244<br>             Average Rating: 4.88/5.0             </div>`)[0];
+                popup_f5cdb7e127d3463d6b1a2747b4cc07c6.setContent(html_a8ed61d704733a2ddc880ebb3535342d);
+            
+        
+
+        marker_5ed0a9da4d1b4869a91f809f45c751bd.bindPopup(popup_f5cdb7e127d3463d6b1a2747b4cc07c6)
+        ;
+
+        
+    
+    
+            marker_5ed0a9da4d1b4869a91f809f45c751bd.bindTooltip(
+                `<div>
+                     Bay Ho: $244
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5ed0a9da4d1b4869a91f809f45c751bd.setIcon(icon_c8c5a2a7d270d22113ebf90e06522acb);
+            
+    
+            var marker_9e74b74e78924cc6ca7a3e3e0899b4c8 = L.marker(
+                [32.79195948834916, -117.20147155993276],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_9b04e242550b48220c6224f3cca1352d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_126d9b4f4249965561110e2305fb20c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ae0d70029ce57d866f5866717ad2943 = $(`<div id="html_7ae0d70029ce57d866f5866717ad2943" style="width: 100.0%; height: 100.0%;">             <b>Bay Park</b><br>             Average Price: $319<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_126d9b4f4249965561110e2305fb20c0.setContent(html_7ae0d70029ce57d866f5866717ad2943);
+            
+        
+
+        marker_9e74b74e78924cc6ca7a3e3e0899b4c8.bindPopup(popup_126d9b4f4249965561110e2305fb20c0)
+        ;
+
+        
+    
+    
+            marker_9e74b74e78924cc6ca7a3e3e0899b4c8.bindTooltip(
+                `<div>
+                     Bay Park: $319
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e74b74e78924cc6ca7a3e3e0899b4c8.setIcon(icon_9b04e242550b48220c6224f3cca1352d);
+            
+    
+            var marker_dd8ab497fb1c52426b43d75858bfa080 = L.marker(
+                [32.68906115552026, -117.03580208420456],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_4667c4ebe6764b103b842b66dbf6e758 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_709d4c36a8da6066def54179d2d3aa0b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0243ce0e82b66dacdc6ee31685e69c3 = $(`<div id="html_b0243ce0e82b66dacdc6ee31685e69c3" style="width: 100.0%; height: 100.0%;">             <b>Bay Terrace</b><br>             Average Price: $215<br>             Average Rating: 4.87/5.0             </div>`)[0];
+                popup_709d4c36a8da6066def54179d2d3aa0b.setContent(html_b0243ce0e82b66dacdc6ee31685e69c3);
+            
+        
+
+        marker_dd8ab497fb1c52426b43d75858bfa080.bindPopup(popup_709d4c36a8da6066def54179d2d3aa0b)
+        ;
+
+        
+    
+    
+            marker_dd8ab497fb1c52426b43d75858bfa080.bindTooltip(
+                `<div>
+                     Bay Terrace: $215
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd8ab497fb1c52426b43d75858bfa080.setIcon(icon_4667c4ebe6764b103b842b66dbf6e758);
+            
+    
+            var marker_3b13130920e306193fd2fb4262c01aea = L.marker(
+                [32.7916669082604, -117.15601760197836],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_ee7c83663f826791ec889776d77083d3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4fa1efb151b403b2e5ae145ca2eab79e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3ba980b3f5097a41bebfeaf95fc805b = $(`<div id="html_b3ba980b3f5097a41bebfeaf95fc805b" style="width: 100.0%; height: 100.0%;">             <b>Bird Land</b><br>             Average Price: $128<br>             Average Rating: 4.17/5.0             </div>`)[0];
+                popup_4fa1efb151b403b2e5ae145ca2eab79e.setContent(html_b3ba980b3f5097a41bebfeaf95fc805b);
+            
+        
+
+        marker_3b13130920e306193fd2fb4262c01aea.bindPopup(popup_4fa1efb151b403b2e5ae145ca2eab79e)
+        ;
+
+        
+    
+    
+            marker_3b13130920e306193fd2fb4262c01aea.bindTooltip(
+                `<div>
+                     Bird Land: $128
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3b13130920e306193fd2fb4262c01aea.setIcon(icon_ee7c83663f826791ec889776d77083d3);
+            
+    
+            var marker_8afe320b5113018a49affdc8d67e86f8 = L.marker(
+                [32.661642592772324, -117.00255420671019],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_aca0fc15bf482a917e677a558491de66 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c1523e7b926ca681ddfd1b63c2c9a95 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62401ba9ff3ab714ae161ff37ddb6511 = $(`<div id="html_62401ba9ff3ab714ae161ff37ddb6511" style="width: 100.0%; height: 100.0%;">             <b>Bonita Long Canyon</b><br>             Average Price: $274<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_4c1523e7b926ca681ddfd1b63c2c9a95.setContent(html_62401ba9ff3ab714ae161ff37ddb6511);
+            
+        
+
+        marker_8afe320b5113018a49affdc8d67e86f8.bindPopup(popup_4c1523e7b926ca681ddfd1b63c2c9a95)
+        ;
+
+        
+    
+    
+            marker_8afe320b5113018a49affdc8d67e86f8.bindTooltip(
+                `<div>
+                     Bonita Long Canyon: $274
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8afe320b5113018a49affdc8d67e86f8.setIcon(icon_aca0fc15bf482a917e677a558491de66);
+            
+    
+            var marker_0e2f5fd59094e2a6053c954628af8aed = L.marker(
+                [32.976981697343795, -117.07506414592804],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_d9f51b7ab75c4a12f07904f5f2d2df0f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f8058fa4adbb68bbda63ffc725c0ba09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_607a9a2781d0474f0eb257aed4129724 = $(`<div id="html_607a9a2781d0474f0eb257aed4129724" style="width: 100.0%; height: 100.0%;">             <b>Carmel Mountain</b><br>             Average Price: $312<br>             Average Rating: 4.96/5.0             </div>`)[0];
+                popup_f8058fa4adbb68bbda63ffc725c0ba09.setContent(html_607a9a2781d0474f0eb257aed4129724);
+            
+        
+
+        marker_0e2f5fd59094e2a6053c954628af8aed.bindPopup(popup_f8058fa4adbb68bbda63ffc725c0ba09)
+        ;
+
+        
+    
+    
+            marker_0e2f5fd59094e2a6053c954628af8aed.bindTooltip(
+                `<div>
+                     Carmel Mountain: $312
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e2f5fd59094e2a6053c954628af8aed.setIcon(icon_d9f51b7ab75c4a12f07904f5f2d2df0f);
+            
+    
+            var marker_5a44ebbb67b2d99b3b9757b5aa20b630 = L.marker(
+                [32.94290489135421, -117.21674371734183],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_8e9b6af7b4a229bd142b09eda199d417 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_81c078f6845d9400c3567701bdf501e9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb71c2d875231e98168d67ae7051c3b2 = $(`<div id="html_cb71c2d875231e98168d67ae7051c3b2" style="width: 100.0%; height: 100.0%;">             <b>Carmel Valley</b><br>             Average Price: $330<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_81c078f6845d9400c3567701bdf501e9.setContent(html_cb71c2d875231e98168d67ae7051c3b2);
+            
+        
+
+        marker_5a44ebbb67b2d99b3b9757b5aa20b630.bindPopup(popup_81c078f6845d9400c3567701bdf501e9)
+        ;
+
+        
+    
+    
+            marker_5a44ebbb67b2d99b3b9757b5aa20b630.bindTooltip(
+                `<div>
+                     Carmel Valley: $330
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5a44ebbb67b2d99b3b9757b5aa20b630.setIcon(icon_8e9b6af7b4a229bd142b09eda199d417);
+            
+    
+            var marker_787796b628d715e7f10fe1f9d462d761 = L.marker(
+                [32.71051639328552, -117.0929806757043],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_4bdb9d2ce6f6c723b5f94f93a87d0dfc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_009ad9d0b481af74882c89a54b68f80e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96f09e37eecaea92f01da355de6373ad = $(`<div id="html_96f09e37eecaea92f01da355de6373ad" style="width: 100.0%; height: 100.0%;">             <b>Chollas View</b><br>             Average Price: $244<br>             Average Rating: 4.80/5.0             </div>`)[0];
+                popup_009ad9d0b481af74882c89a54b68f80e.setContent(html_96f09e37eecaea92f01da355de6373ad);
+            
+        
+
+        marker_787796b628d715e7f10fe1f9d462d761.bindPopup(popup_009ad9d0b481af74882c89a54b68f80e)
+        ;
+
+        
+    
+    
+            marker_787796b628d715e7f10fe1f9d462d761.bindTooltip(
+                `<div>
+                     Chollas View: $244
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_787796b628d715e7f10fe1f9d462d761.setIcon(icon_4bdb9d2ce6f6c723b5f94f93a87d0dfc);
+            
+    
+            var marker_8dcc5ef6046b6096a29d1e0d89273229 = L.marker(
+                [32.742594268531995, -117.09376499661106],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_3e2be63de12fa0f0cbea443d463c713a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a353283684d21ecfa586911b194b7c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71f3322f74ec02814737e9f704374d7d = $(`<div id="html_71f3322f74ec02814737e9f704374d7d" style="width: 100.0%; height: 100.0%;">             <b>City Heights East</b><br>             Average Price: $180<br>             Average Rating: 4.72/5.0             </div>`)[0];
+                popup_9a353283684d21ecfa586911b194b7c5.setContent(html_71f3322f74ec02814737e9f704374d7d);
+            
+        
+
+        marker_8dcc5ef6046b6096a29d1e0d89273229.bindPopup(popup_9a353283684d21ecfa586911b194b7c5)
+        ;
+
+        
+    
+    
+            marker_8dcc5ef6046b6096a29d1e0d89273229.bindTooltip(
+                `<div>
+                     City Heights East: $180
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8dcc5ef6046b6096a29d1e0d89273229.setIcon(icon_3e2be63de12fa0f0cbea443d463c713a);
+            
+    
+            var marker_f23610575b1c2fc7c80589aab5ded5b4 = L.marker(
+                [32.74614782407074, -117.11199080105469],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_a900df3e322885222284d6c4c9a4766d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9cb2d2b8177a8e60afb80b0e338b3b65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e31dcd0a54abee4b7746d0da7ef312df = $(`<div id="html_e31dcd0a54abee4b7746d0da7ef312df" style="width: 100.0%; height: 100.0%;">             <b>City Heights West</b><br>             Average Price: $165<br>             Average Rating: 4.85/5.0             </div>`)[0];
+                popup_9cb2d2b8177a8e60afb80b0e338b3b65.setContent(html_e31dcd0a54abee4b7746d0da7ef312df);
+            
+        
+
+        marker_f23610575b1c2fc7c80589aab5ded5b4.bindPopup(popup_9cb2d2b8177a8e60afb80b0e338b3b65)
+        ;
+
+        
+    
+    
+            marker_f23610575b1c2fc7c80589aab5ded5b4.bindTooltip(
+                `<div>
+                     City Heights West: $165
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f23610575b1c2fc7c80589aab5ded5b4.setIcon(icon_a900df3e322885222284d6c4c9a4766d);
+            
+    
+            var marker_0588815c8383b6e4273dc632c0f4df62 = L.marker(
+                [32.81993279632576, -117.17753647432443],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_b184a7d215c4910dca63fca22684cc2e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db9a56a8123dfa72b6230317a3c3bda7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d7eb19a5aa61aaf88f4ff293f4facb7f = $(`<div id="html_d7eb19a5aa61aaf88f4ff293f4facb7f" style="width: 100.0%; height: 100.0%;">             <b>Clairemont Mesa</b><br>             Average Price: $218<br>             Average Rating: 4.85/5.0             </div>`)[0];
+                popup_db9a56a8123dfa72b6230317a3c3bda7.setContent(html_d7eb19a5aa61aaf88f4ff293f4facb7f);
+            
+        
+
+        marker_0588815c8383b6e4273dc632c0f4df62.bindPopup(popup_db9a56a8123dfa72b6230317a3c3bda7)
+        ;
+
+        
+    
+    
+            marker_0588815c8383b6e4273dc632c0f4df62.bindTooltip(
+                `<div>
+                     Clairemont Mesa: $218
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0588815c8383b6e4273dc632c0f4df62.setIcon(icon_b184a7d215c4910dca63fca22684cc2e);
+            
+    
+            var marker_f72c40b9481d6afbc1ac902723933100 = L.marker(
+                [32.769419715457246, -117.07120839210928],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_8a8f171b57a366505ac325b90ccd9e0b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b98d33ba9f7df0bb555581fe8642e29 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17ed7d3c80bd179a560ae597f0329f51 = $(`<div id="html_17ed7d3c80bd179a560ae597f0329f51" style="width: 100.0%; height: 100.0%;">             <b>College Area</b><br>             Average Price: $217<br>             Average Rating: 4.79/5.0             </div>`)[0];
+                popup_0b98d33ba9f7df0bb555581fe8642e29.setContent(html_17ed7d3c80bd179a560ae597f0329f51);
+            
+        
+
+        marker_f72c40b9481d6afbc1ac902723933100.bindPopup(popup_0b98d33ba9f7df0bb555581fe8642e29)
+        ;
+
+        
+    
+    
+            marker_f72c40b9481d6afbc1ac902723933100.bindTooltip(
+                `<div>
+                     College Area: $217
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f72c40b9481d6afbc1ac902723933100.setIcon(icon_8a8f171b57a366505ac325b90ccd9e0b);
+            
+    
+            var marker_8012cfb327c2f5b20a19407bd074a256 = L.marker(
+                [32.718518816355534, -117.16892856383522],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_91c1432580a71d7be003d7d1c39f4157 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_086cd35df5cdd3b268ef64970f07603d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a2f83eb136a13a7fd4693c0871e4a10b = $(`<div id="html_a2f83eb136a13a7fd4693c0871e4a10b" style="width: 100.0%; height: 100.0%;">             <b>Columbia</b><br>             Average Price: $317<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_086cd35df5cdd3b268ef64970f07603d.setContent(html_a2f83eb136a13a7fd4693c0871e4a10b);
+            
+        
+
+        marker_8012cfb327c2f5b20a19407bd074a256.bindPopup(popup_086cd35df5cdd3b268ef64970f07603d)
+        ;
+
+        
+    
+    
+            marker_8012cfb327c2f5b20a19407bd074a256.bindTooltip(
+                `<div>
+                     Columbia: $317
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8012cfb327c2f5b20a19407bd074a256.setIcon(icon_91c1432580a71d7be003d7d1c39f4157);
+            
+    
+            var marker_97fd9c48bb687d618d5ec58e12c84991 = L.marker(
+                [32.71732667459886, -117.15706851257723],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_a39402cbd9e46d7d2163045e11651532 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_43dac8cd4b1747152c62379b94c62b49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86a1903c462be1ba8fadb8be9e83a675 = $(`<div id="html_86a1903c462be1ba8fadb8be9e83a675" style="width: 100.0%; height: 100.0%;">             <b>Core</b><br>             Average Price: $282<br>             Average Rating: 4.73/5.0             </div>`)[0];
+                popup_43dac8cd4b1747152c62379b94c62b49.setContent(html_86a1903c462be1ba8fadb8be9e83a675);
+            
+        
+
+        marker_97fd9c48bb687d618d5ec58e12c84991.bindPopup(popup_43dac8cd4b1747152c62379b94c62b49)
+        ;
+
+        
+    
+    
+            marker_97fd9c48bb687d618d5ec58e12c84991.bindTooltip(
+                `<div>
+                     Core: $282
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_97fd9c48bb687d618d5ec58e12c84991.setIcon(icon_a39402cbd9e46d7d2163045e11651532);
+            
+    
+            var marker_e15ce626daed8cc8f774f1b784057470 = L.marker(
+                [32.721022595041255, -117.15961867927537],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_5fc82b16d1d17a6a4125326b29446b53 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_58bc163ab9274471203d5b9397e29aec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_939e9ba1e1ab8bcaa3529e88dce0c4f0 = $(`<div id="html_939e9ba1e1ab8bcaa3529e88dce0c4f0" style="width: 100.0%; height: 100.0%;">             <b>Cortez Hill</b><br>             Average Price: $165<br>             Average Rating: 4.68/5.0             </div>`)[0];
+                popup_58bc163ab9274471203d5b9397e29aec.setContent(html_939e9ba1e1ab8bcaa3529e88dce0c4f0);
+            
+        
+
+        marker_e15ce626daed8cc8f774f1b784057470.bindPopup(popup_58bc163ab9274471203d5b9397e29aec)
+        ;
+
+        
+    
+    
+            marker_e15ce626daed8cc8f774f1b784057470.bindTooltip(
+                `<div>
+                     Cortez Hill: $165
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e15ce626daed8cc8f774f1b784057470.setIcon(icon_5fc82b16d1d17a6a4125326b29446b53);
+            
+    
+            var marker_39e2e0fac03d00d680defeb8d232040e = L.marker(
+                [32.74890508180469, -117.05977514624789],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_54b1b62e6579ab1d8e2d1fdb2fd35339 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a276bf6393010788dd27115586c7adc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aeb5f85ecd1ad5b4134c2c27fffadc76 = $(`<div id="html_aeb5f85ecd1ad5b4134c2c27fffadc76" style="width: 100.0%; height: 100.0%;">             <b>Darnall</b><br>             Average Price: $164<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_0a276bf6393010788dd27115586c7adc.setContent(html_aeb5f85ecd1ad5b4134c2c27fffadc76);
+            
+        
+
+        marker_39e2e0fac03d00d680defeb8d232040e.bindPopup(popup_0a276bf6393010788dd27115586c7adc)
+        ;
+
+        
+    
+    
+            marker_39e2e0fac03d00d680defeb8d232040e.bindTooltip(
+                `<div>
+                     Darnall: $164
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_39e2e0fac03d00d680defeb8d232040e.setIcon(icon_54b1b62e6579ab1d8e2d1fdb2fd35339);
+            
+    
+            var marker_1ab7447a395c8dae64c75b8fd7772116 = L.marker(
+                [32.78703709915871, -117.07452467795495],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_824fc03326f24bf7aa863dc7bf03ee28 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e5860671b6a81a147a1acf17ef083d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb516f4e26870456b0c8b50a63f32c4f = $(`<div id="html_bb516f4e26870456b0c8b50a63f32c4f" style="width: 100.0%; height: 100.0%;">             <b>Del Cerro</b><br>             Average Price: $339<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_1e5860671b6a81a147a1acf17ef083d4.setContent(html_bb516f4e26870456b0c8b50a63f32c4f);
+            
+        
+
+        marker_1ab7447a395c8dae64c75b8fd7772116.bindPopup(popup_1e5860671b6a81a147a1acf17ef083d4)
+        ;
+
+        
+    
+    
+            marker_1ab7447a395c8dae64c75b8fd7772116.bindTooltip(
+                `<div>
+                     Del Cerro: $339
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1ab7447a395c8dae64c75b8fd7772116.setIcon(icon_824fc03326f24bf7aa863dc7bf03ee28);
+            
+    
+            var marker_c703d28df29b2f0bc1c8eac386376728 = L.marker(
+                [32.94491279063939, -117.25166951691327],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_0e59249a5a36b80604f7b004fbf355e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e68eecd86d82aca0bdb72b64104973ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c805bb0e3281a6938a9f961a22faf1f9 = $(`<div id="html_c805bb0e3281a6938a9f961a22faf1f9" style="width: 100.0%; height: 100.0%;">             <b>Del Mar Heights</b><br>             Average Price: $468<br>             Average Rating: 4.90/5.0             </div>`)[0];
+                popup_e68eecd86d82aca0bdb72b64104973ff.setContent(html_c805bb0e3281a6938a9f961a22faf1f9);
+            
+        
+
+        marker_c703d28df29b2f0bc1c8eac386376728.bindPopup(popup_e68eecd86d82aca0bdb72b64104973ff)
+        ;
+
+        
+    
+    
+            marker_c703d28df29b2f0bc1c8eac386376728.bindTooltip(
+                `<div>
+                     Del Mar Heights: $468
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c703d28df29b2f0bc1c8eac386376728.setIcon(icon_0e59249a5a36b80604f7b004fbf355e3);
+            
+    
+            var marker_07701172adbe9271979282ad9cbeedb9 = L.marker(
+                [32.653812891766535, -116.97982743685826],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_ba12d1c3d484bcc15686b77b97bba8a6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6854fde278b11ebd5a854ffbf6fdd055 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12d73caf4e23ebd03f43cd10e9bb0b02 = $(`<div id="html_12d73caf4e23ebd03f43cd10e9bb0b02" style="width: 100.0%; height: 100.0%;">             <b>East Lake</b><br>             Average Price: $135<br>             Average Rating: 4.72/5.0             </div>`)[0];
+                popup_6854fde278b11ebd5a854ffbf6fdd055.setContent(html_12d73caf4e23ebd03f43cd10e9bb0b02);
+            
+        
+
+        marker_07701172adbe9271979282ad9cbeedb9.bindPopup(popup_6854fde278b11ebd5a854ffbf6fdd055)
+        ;
+
+        
+    
+    
+            marker_07701172adbe9271979282ad9cbeedb9.bindTooltip(
+                `<div>
+                     East Lake: $135
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_07701172adbe9271979282ad9cbeedb9.setIcon(icon_ba12d1c3d484bcc15686b77b97bba8a6);
+            
+    
+            var marker_28afdace4cdb83c7d136600ebcf09a23 = L.marker(
+                [32.71165457887136, -117.15454753515317],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_b303ed7fe34c2453fefb24ebbda9001d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ba679de4f2ed9f04a2ef8dd364b47c05 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8af8844a5bd282e4c897c80e6ebfcef3 = $(`<div id="html_8af8844a5bd282e4c897c80e6ebfcef3" style="width: 100.0%; height: 100.0%;">             <b>East Village</b><br>             Average Price: $227<br>             Average Rating: 4.75/5.0             </div>`)[0];
+                popup_ba679de4f2ed9f04a2ef8dd364b47c05.setContent(html_8af8844a5bd282e4c897c80e6ebfcef3);
+            
+        
+
+        marker_28afdace4cdb83c7d136600ebcf09a23.bindPopup(popup_ba679de4f2ed9f04a2ef8dd364b47c05)
+        ;
+
+        
+    
+    
+            marker_28afdace4cdb83c7d136600ebcf09a23.bindTooltip(
+                `<div>
+                     East Village: $227
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_28afdace4cdb83c7d136600ebcf09a23.setIcon(icon_b303ed7fe34c2453fefb24ebbda9001d);
+            
+    
+            var marker_ca0f4d0e1547fb8daf5c7ec2424d29b2 = L.marker(
+                [32.63548, -116.95066],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_e5e0b4c4717e5cc34382f4ca9872d0c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_34e57ea76f428f50baabc62f6e9519fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c0948309372e4d45f09faa181ca5155d = $(`<div id="html_c0948309372e4d45f09faa181ca5155d" style="width: 100.0%; height: 100.0%;">             <b>Eastlake Trails</b><br>             Average Price: $120<br>             Average Rating: 4.94/5.0             </div>`)[0];
+                popup_34e57ea76f428f50baabc62f6e9519fe.setContent(html_c0948309372e4d45f09faa181ca5155d);
+            
+        
+
+        marker_ca0f4d0e1547fb8daf5c7ec2424d29b2.bindPopup(popup_34e57ea76f428f50baabc62f6e9519fe)
+        ;
+
+        
+    
+    
+            marker_ca0f4d0e1547fb8daf5c7ec2424d29b2.bindTooltip(
+                `<div>
+                     Eastlake Trails: $120
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ca0f4d0e1547fb8daf5c7ec2424d29b2.setIcon(icon_e5e0b4c4717e5cc34382f4ca9872d0c2);
+            
+    
+            var marker_9909c9aebd2f27debca9319c46b32ddc = L.marker(
+                [32.6369606625, -116.9393838],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_820bcead512b2c648e6b430f7d740b68 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_effa047510087b1a668ec10a0e7b1eab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7d7682701bcceea98f1e37128ec7a415 = $(`<div id="html_7d7682701bcceea98f1e37128ec7a415" style="width: 100.0%; height: 100.0%;">             <b>Eastlake Vistas</b><br>             Average Price: $155<br>             Average Rating: 4.94/5.0             </div>`)[0];
+                popup_effa047510087b1a668ec10a0e7b1eab.setContent(html_7d7682701bcceea98f1e37128ec7a415);
+            
+        
+
+        marker_9909c9aebd2f27debca9319c46b32ddc.bindPopup(popup_effa047510087b1a668ec10a0e7b1eab)
+        ;
+
+        
+    
+    
+            marker_9909c9aebd2f27debca9319c46b32ddc.bindTooltip(
+                `<div>
+                     Eastlake Vistas: $155
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9909c9aebd2f27debca9319c46b32ddc.setIcon(icon_820bcead512b2c648e6b430f7d740b68);
+            
+    
+            var marker_8cb6eb2c3f7aeaf50e47215e0bf0d762 = L.marker(
+                [32.654245, -116.94546],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_e4f1fd1a36eaae243e10166ab7d7c4fb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6708f2f8e3d3c00b0be22c8a9e4ef2f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17c14c3639a9d211f4ab76cd786cc257 = $(`<div id="html_17c14c3639a9d211f4ab76cd786cc257" style="width: 100.0%; height: 100.0%;">             <b>Eastlake Woods</b><br>             Average Price: $114<br>             Average Rating: 4.92/5.0             </div>`)[0];
+                popup_6708f2f8e3d3c00b0be22c8a9e4ef2f7.setContent(html_17c14c3639a9d211f4ab76cd786cc257);
+            
+        
+
+        marker_8cb6eb2c3f7aeaf50e47215e0bf0d762.bindPopup(popup_6708f2f8e3d3c00b0be22c8a9e4ef2f7)
+        ;
+
+        
+    
+    
+            marker_8cb6eb2c3f7aeaf50e47215e0bf0d762.bindTooltip(
+                `<div>
+                     Eastlake Woods: $114
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8cb6eb2c3f7aeaf50e47215e0bf0d762.setIcon(icon_e4f1fd1a36eaae243e10166ab7d7c4fb);
+            
+    
+            var marker_3c3e171a5653765e4dbaf35ca4d5d168 = L.marker(
+                [32.572815241005124, -117.0980394603281],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_f5c0e3e3177e7f65b92f27dfd30086d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6593d3a0a98ca944cb172fb761649402 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec448e30fd1b868ef6cd34dac2790ecd = $(`<div id="html_ec448e30fd1b868ef6cd34dac2790ecd" style="width: 100.0%; height: 100.0%;">             <b>Egger Highlands</b><br>             Average Price: $184<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_6593d3a0a98ca944cb172fb761649402.setContent(html_ec448e30fd1b868ef6cd34dac2790ecd);
+            
+        
+
+        marker_3c3e171a5653765e4dbaf35ca4d5d168.bindPopup(popup_6593d3a0a98ca944cb172fb761649402)
+        ;
+
+        
+    
+    
+            marker_3c3e171a5653765e4dbaf35ca4d5d168.bindTooltip(
+                `<div>
+                     Egger Highlands: $184
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3c3e171a5653765e4dbaf35ca4d5d168.setIcon(icon_f5c0e3e3177e7f65b92f27dfd30086d6);
+            
+    
+            var marker_aad3ae7cf14906612eea6c94f05e2fc1 = L.marker(
+                [32.75588310886088, -117.07094510016411],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_cf2c8b80c1c13fcb8bf8d8c7f212200b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad97d723bf6f3cec0c92d82b5159526c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6f45d60fdfd5d5a84368cf0f2b6ec3a = $(`<div id="html_a6f45d60fdfd5d5a84368cf0f2b6ec3a" style="width: 100.0%; height: 100.0%;">             <b>El Cerritos</b><br>             Average Price: $147<br>             Average Rating: 4.95/5.0             </div>`)[0];
+                popup_ad97d723bf6f3cec0c92d82b5159526c.setContent(html_a6f45d60fdfd5d5a84368cf0f2b6ec3a);
+            
+        
+
+        marker_aad3ae7cf14906612eea6c94f05e2fc1.bindPopup(popup_ad97d723bf6f3cec0c92d82b5159526c)
+        ;
+
+        
+    
+    
+            marker_aad3ae7cf14906612eea6c94f05e2fc1.bindTooltip(
+                `<div>
+                     El Cerritos: $147
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aad3ae7cf14906612eea6c94f05e2fc1.setIcon(icon_cf2c8b80c1c13fcb8bf8d8c7f212200b);
+            
+    
+            var marker_370ce65adcf17faa8ab2e02e4cd62a09 = L.marker(
+                [32.71325438277162, -117.075660475665],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_fb6c4e42cee0ee9504725598765f5450 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_48da78d44d5163fc00f9db381e0f5b38 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a2485b18c7e35fe8abc9e0ae0574cc70 = $(`<div id="html_a2485b18c7e35fe8abc9e0ae0574cc70" style="width: 100.0%; height: 100.0%;">             <b>Emerald Hills</b><br>             Average Price: $146<br>             Average Rating: 4.76/5.0             </div>`)[0];
+                popup_48da78d44d5163fc00f9db381e0f5b38.setContent(html_a2485b18c7e35fe8abc9e0ae0574cc70);
+            
+        
+
+        marker_370ce65adcf17faa8ab2e02e4cd62a09.bindPopup(popup_48da78d44d5163fc00f9db381e0f5b38)
+        ;
+
+        
+    
+    
+            marker_370ce65adcf17faa8ab2e02e4cd62a09.bindTooltip(
+                `<div>
+                     Emerald Hills: $146
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_370ce65adcf17faa8ab2e02e4cd62a09.setIcon(icon_fb6c4e42cee0ee9504725598765f5450);
+            
+    
+            var marker_aa63c318936aecc780e666dc0b8b6943 = L.marker(
+                [32.71756836617223, -117.05838061724495],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_67f437bb7b8a8fd2431ad30bc2c29db4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e6c9012d2bc0c8ad0c36e43c875ef26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_289a38a01b0cce7fe2707cc824ef66c4 = $(`<div id="html_289a38a01b0cce7fe2707cc824ef66c4" style="width: 100.0%; height: 100.0%;">             <b>Encanto</b><br>             Average Price: $199<br>             Average Rating: 4.83/5.0             </div>`)[0];
+                popup_3e6c9012d2bc0c8ad0c36e43c875ef26.setContent(html_289a38a01b0cce7fe2707cc824ef66c4);
+            
+        
+
+        marker_aa63c318936aecc780e666dc0b8b6943.bindPopup(popup_3e6c9012d2bc0c8ad0c36e43c875ef26)
+        ;
+
+        
+    
+    
+            marker_aa63c318936aecc780e666dc0b8b6943.bindTooltip(
+                `<div>
+                     Encanto: $199
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aa63c318936aecc780e666dc0b8b6943.setIcon(icon_67f437bb7b8a8fd2431ad30bc2c29db4);
+            
+    
+            var marker_8c6fa32bef8e971a5629b14dd22016d8 = L.marker(
+                [32.633515925, -116.959055275],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_a136cdc10b1c4a52c25e1563702707b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c9a6550ab22ba7a5a2300da333385432 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7619139311e0f251d4fe472951e786a1 = $(`<div id="html_7619139311e0f251d4fe472951e786a1" style="width: 100.0%; height: 100.0%;">             <b>Estlake Greens</b><br>             Average Price: $174<br>             Average Rating: 4.90/5.0             </div>`)[0];
+                popup_c9a6550ab22ba7a5a2300da333385432.setContent(html_7619139311e0f251d4fe472951e786a1);
+            
+        
+
+        marker_8c6fa32bef8e971a5629b14dd22016d8.bindPopup(popup_c9a6550ab22ba7a5a2300da333385432)
+        ;
+
+        
+    
+    
+            marker_8c6fa32bef8e971a5629b14dd22016d8.bindTooltip(
+                `<div>
+                     Estlake Greens: $174
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8c6fa32bef8e971a5629b14dd22016d8.setIcon(icon_a136cdc10b1c4a52c25e1563702707b0);
+            
+    
+            var marker_1b9b041b6d611cfa6aa9be919592463e = L.marker(
+                [32.71256435418027, -117.16018146387025],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_6d50a1b3c770285ca126d71767ea4c52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1da40db3d66236b5025047f0731c1017 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfede953824ce83bac18f4cc9c446785 = $(`<div id="html_dfede953824ce83bac18f4cc9c446785" style="width: 100.0%; height: 100.0%;">             <b>Gaslamp Quarter</b><br>             Average Price: $240<br>             Average Rating: 4.76/5.0             </div>`)[0];
+                popup_1da40db3d66236b5025047f0731c1017.setContent(html_dfede953824ce83bac18f4cc9c446785);
+            
+        
+
+        marker_1b9b041b6d611cfa6aa9be919592463e.bindPopup(popup_1da40db3d66236b5025047f0731c1017)
+        ;
+
+        
+    
+    
+            marker_1b9b041b6d611cfa6aa9be919592463e.bindTooltip(
+                `<div>
+                     Gaslamp Quarter: $240
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1b9b041b6d611cfa6aa9be919592463e.setIcon(icon_6d50a1b3c770285ca126d71767ea4c52);
+            
+    
+            var marker_415a97cd55b6dd03acbacc7c64a482dc = L.marker(
+                [32.72560350828222, -117.10837241818876],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_967b575a6513dcf1bf2d511456ced6f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_451cea87d284640be51e6bdfd05fd260 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_55aefe2af0c20b755014a951fa76d649 = $(`<div id="html_55aefe2af0c20b755014a951fa76d649" style="width: 100.0%; height: 100.0%;">             <b>Gateway</b><br>             Average Price: $196<br>             Average Rating: 4.87/5.0             </div>`)[0];
+                popup_451cea87d284640be51e6bdfd05fd260.setContent(html_55aefe2af0c20b755014a951fa76d649);
+            
+        
+
+        marker_415a97cd55b6dd03acbacc7c64a482dc.bindPopup(popup_451cea87d284640be51e6bdfd05fd260)
+        ;
+
+        
+    
+    
+            marker_415a97cd55b6dd03acbacc7c64a482dc.bindTooltip(
+                `<div>
+                     Gateway: $196
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_415a97cd55b6dd03acbacc7c64a482dc.setIcon(icon_967b575a6513dcf1bf2d511456ced6f0);
+            
+    
+            var marker_50181c0fc149d660e84881ebc616aa52 = L.marker(
+                [32.70992974475071, -117.1360120979698],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_5c849a0e6f74cdfc885d552066313c5c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e272fa1d055f8e01d7ed5adc5d43b7e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_472c402d01e1ca7d7fbb2c3faeb2afcf = $(`<div id="html_472c402d01e1ca7d7fbb2c3faeb2afcf" style="width: 100.0%; height: 100.0%;">             <b>Grant Hill</b><br>             Average Price: $304<br>             Average Rating: 4.80/5.0             </div>`)[0];
+                popup_e272fa1d055f8e01d7ed5adc5d43b7e2.setContent(html_472c402d01e1ca7d7fbb2c3faeb2afcf);
+            
+        
+
+        marker_50181c0fc149d660e84881ebc616aa52.bindPopup(popup_e272fa1d055f8e01d7ed5adc5d43b7e2)
+        ;
+
+        
+    
+    
+            marker_50181c0fc149d660e84881ebc616aa52.bindTooltip(
+                `<div>
+                     Grant Hill: $304
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_50181c0fc149d660e84881ebc616aa52.setIcon(icon_5c849a0e6f74cdfc885d552066313c5c);
+            
+    
+            var marker_3d26efd7bbc72dcd3295fa7d5ea374b9 = L.marker(
+                [32.78658771653865, -117.10050493494313],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_1fd94cfb51b06037f9c63632b0329159 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7044d6d94110122af609e12ae75b2df5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1056bf1c17501b3acd9cc390e68bdcb6 = $(`<div id="html_1056bf1c17501b3acd9cc390e68bdcb6" style="width: 100.0%; height: 100.0%;">             <b>Grantville</b><br>             Average Price: $154<br>             Average Rating: 4.90/5.0             </div>`)[0];
+                popup_7044d6d94110122af609e12ae75b2df5.setContent(html_1056bf1c17501b3acd9cc390e68bdcb6);
+            
+        
+
+        marker_3d26efd7bbc72dcd3295fa7d5ea374b9.bindPopup(popup_7044d6d94110122af609e12ae75b2df5)
+        ;
+
+        
+    
+    
+            marker_3d26efd7bbc72dcd3295fa7d5ea374b9.bindTooltip(
+                `<div>
+                     Grantville: $154
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3d26efd7bbc72dcd3295fa7d5ea374b9.setIcon(icon_1fd94cfb51b06037f9c63632b0329159);
+            
+    
+            var marker_143bb6ef6ee3774ab58f624b1cd69f4c = L.marker(
+                [32.71446042956658, -117.0332216608208],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_07e9f632062fde57855fdcefe2a52ddb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_13ff5852f162e2a5c2799ef4e50b9ca1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7eb495e0a299ff7b22d9a9654cc5068a = $(`<div id="html_7eb495e0a299ff7b22d9a9654cc5068a" style="width: 100.0%; height: 100.0%;">             <b>Jomacha-Lomita</b><br>             Average Price: $133<br>             Average Rating: 4.77/5.0             </div>`)[0];
+                popup_13ff5852f162e2a5c2799ef4e50b9ca1.setContent(html_7eb495e0a299ff7b22d9a9654cc5068a);
+            
+        
+
+        marker_143bb6ef6ee3774ab58f624b1cd69f4c.bindPopup(popup_13ff5852f162e2a5c2799ef4e50b9ca1)
+        ;
+
+        
+    
+    
+            marker_143bb6ef6ee3774ab58f624b1cd69f4c.bindTooltip(
+                `<div>
+                     Jomacha-Lomita: $133
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_143bb6ef6ee3774ab58f624b1cd69f4c.setIcon(icon_07e9f632062fde57855fdcefe2a52ddb);
+            
+    
+            var marker_12296ebf349f92a324bd519ea04db275 = L.marker(
+                [32.82605252187312, -117.14239900771693],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_33ada961bb22ff5479a6f0c07c726fdb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aaf4606678d9ea659c796d9846628592 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7cfebf658f7d92602ec1f08e8d9c5f2d = $(`<div id="html_7cfebf658f7d92602ec1f08e8d9c5f2d" style="width: 100.0%; height: 100.0%;">             <b>Kearny Mesa</b><br>             Average Price: $304<br>             Average Rating: 4.88/5.0             </div>`)[0];
+                popup_aaf4606678d9ea659c796d9846628592.setContent(html_7cfebf658f7d92602ec1f08e8d9c5f2d);
+            
+        
+
+        marker_12296ebf349f92a324bd519ea04db275.bindPopup(popup_aaf4606678d9ea659c796d9846628592)
+        ;
+
+        
+    
+    
+            marker_12296ebf349f92a324bd519ea04db275.bindTooltip(
+                `<div>
+                     Kearny Mesa: $304
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_12296ebf349f92a324bd519ea04db275.setIcon(icon_33ada961bb22ff5479a6f0c07c726fdb);
+            
+    
+            var marker_9db1425507d71b3fdbcd61210f1703dc = L.marker(
+                [32.76278281149552, -117.10515188162582],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_96415798507ceda7f8e3925a8878239c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6574c0f3edc164d0789aaaa17d39520d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e3a062d9c85b658f9d34e56133360d3 = $(`<div id="html_1e3a062d9c85b658f9d34e56133360d3" style="width: 100.0%; height: 100.0%;">             <b>Kensington</b><br>             Average Price: $189<br>             Average Rating: 4.93/5.0             </div>`)[0];
+                popup_6574c0f3edc164d0789aaaa17d39520d.setContent(html_1e3a062d9c85b658f9d34e56133360d3);
+            
+        
+
+        marker_9db1425507d71b3fdbcd61210f1703dc.bindPopup(popup_6574c0f3edc164d0789aaaa17d39520d)
+        ;
+
+        
+    
+    
+            marker_9db1425507d71b3fdbcd61210f1703dc.bindTooltip(
+                `<div>
+                     Kensington: $189
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9db1425507d71b3fdbcd61210f1703dc.setIcon(icon_96415798507ceda7f8e3925a8878239c);
+            
+    
+            var marker_63dc49702afb81405c8e457049fe36ef = L.marker(
+                [32.83546031915769, -117.26752937594031],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_3b8d680bfbdf6343ef475c30b796d38f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97b949224f5cd325d18300a2c26a90b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb0e4a100418987a054794faf2e9cf22 = $(`<div id="html_fb0e4a100418987a054794faf2e9cf22" style="width: 100.0%; height: 100.0%;">             <b>La Jolla</b><br>             Average Price: $513<br>             Average Rating: 4.84/5.0             </div>`)[0];
+                popup_97b949224f5cd325d18300a2c26a90b1.setContent(html_fb0e4a100418987a054794faf2e9cf22);
+            
+        
+
+        marker_63dc49702afb81405c8e457049fe36ef.bindPopup(popup_97b949224f5cd325d18300a2c26a90b1)
+        ;
+
+        
+    
+    
+            marker_63dc49702afb81405c8e457049fe36ef.bindTooltip(
+                `<div>
+                     La Jolla: $513
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_63dc49702afb81405c8e457049fe36ef.setIcon(icon_3b8d680bfbdf6343ef475c30b796d38f);
+            
+    
+            var marker_4e0df67fb28c3e9fb1257b90a096a7c4 = L.marker(
+                [32.861819048510455, -117.23362186887252],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_8dd4c7d1b3ba3969ccbb5a82c60fea53 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ba11c4eb3dca8f31eae77c93b76fc52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d657e38a86fd9986f32e66bff5faf8d3 = $(`<div id="html_d657e38a86fd9986f32e66bff5faf8d3" style="width: 100.0%; height: 100.0%;">             <b>La Jolla Village</b><br>             Average Price: $157<br>             Average Rating: 4.85/5.0             </div>`)[0];
+                popup_3ba11c4eb3dca8f31eae77c93b76fc52.setContent(html_d657e38a86fd9986f32e66bff5faf8d3);
+            
+        
+
+        marker_4e0df67fb28c3e9fb1257b90a096a7c4.bindPopup(popup_3ba11c4eb3dca8f31eae77c93b76fc52)
+        ;
+
+        
+    
+    
+            marker_4e0df67fb28c3e9fb1257b90a096a7c4.bindTooltip(
+                `<div>
+                     La Jolla Village: $157
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4e0df67fb28c3e9fb1257b90a096a7c4.setIcon(icon_8dd4c7d1b3ba3969ccbb5a82c60fea53);
+            
+    
+            var marker_e96bf7eed9c27e22c0e3a9f9251c371c = L.marker(
+                [32.80014285086458, -117.02166743101999],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_fa47c9f19ccbc1b3ef17e4f109dc0451 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df8e78ed4944393d53cf9c72bb379a87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2727153c2ecd647c43038ca753fbbfb7 = $(`<div id="html_2727153c2ecd647c43038ca753fbbfb7" style="width: 100.0%; height: 100.0%;">             <b>Lake Murray</b><br>             Average Price: $257<br>             Average Rating: 4.92/5.0             </div>`)[0];
+                popup_df8e78ed4944393d53cf9c72bb379a87.setContent(html_2727153c2ecd647c43038ca753fbbfb7);
+            
+        
+
+        marker_e96bf7eed9c27e22c0e3a9f9251c371c.bindPopup(popup_df8e78ed4944393d53cf9c72bb379a87)
+        ;
+
+        
+    
+    
+            marker_e96bf7eed9c27e22c0e3a9f9251c371c.bindTooltip(
+                `<div>
+                     Lake Murray: $257
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e96bf7eed9c27e22c0e3a9f9251c371c.setIcon(icon_fa47c9f19ccbc1b3ef17e4f109dc0451);
+            
+    
+            var marker_73ee2e3b3bd7821cf8da477ad4ef5e4e = L.marker(
+                [32.6965, -117.088565],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_d7193867d3fc9982212947a750869dc2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7dfb22783b1865c755be395dfc13c6b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9fd79b4bbf84db6b417bdddf90b6387a = $(`<div id="html_9fd79b4bbf84db6b417bdddf90b6387a" style="width: 100.0%; height: 100.0%;">             <b>Lincoln Park</b><br>             Average Price: $90<br>             Average Rating: 4.97/5.0             </div>`)[0];
+                popup_e7dfb22783b1865c755be395dfc13c6b.setContent(html_9fd79b4bbf84db6b417bdddf90b6387a);
+            
+        
+
+        marker_73ee2e3b3bd7821cf8da477ad4ef5e4e.bindPopup(popup_e7dfb22783b1865c755be395dfc13c6b)
+        ;
+
+        
+    
+    
+            marker_73ee2e3b3bd7821cf8da477ad4ef5e4e.bindTooltip(
+                `<div>
+                     Lincoln Park: $90
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_73ee2e3b3bd7821cf8da477ad4ef5e4e.setIcon(icon_d7193867d3fc9982212947a750869dc2);
+            
+    
+            var marker_7ff476d90cdc1cc6691fb420ba7cc355 = L.marker(
+                [32.780982256184856, -117.17129159546073],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_52d610d1ce360caaeed195bffb58e467 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21597b0ef7a1d3be550a1c5d1ed27afe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ea61f96a0ab0174983b5f7a839ca98cc = $(`<div id="html_ea61f96a0ab0174983b5f7a839ca98cc" style="width: 100.0%; height: 100.0%;">             <b>Linda Vista</b><br>             Average Price: $237<br>             Average Rating: 4.84/5.0             </div>`)[0];
+                popup_21597b0ef7a1d3be550a1c5d1ed27afe.setContent(html_ea61f96a0ab0174983b5f7a839ca98cc);
+            
+        
+
+        marker_7ff476d90cdc1cc6691fb420ba7cc355.bindPopup(popup_21597b0ef7a1d3be550a1c5d1ed27afe)
+        ;
+
+        
+    
+    
+            marker_7ff476d90cdc1cc6691fb420ba7cc355.bindTooltip(
+                `<div>
+                     Linda Vista: $237
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7ff476d90cdc1cc6691fb420ba7cc355.setIcon(icon_52d610d1ce360caaeed195bffb58e467);
+            
+    
+            var marker_08b15cd9fe2d6c44efe921a29f6e9f8d = L.marker(
+                [32.723878050061145, -117.16819789054895],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_e7f758e4431c1ed51987693697227bc4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2a9af65551694f0fac385c7b3098a31f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6555bd070296710fdb5343c565f405ed = $(`<div id="html_6555bd070296710fdb5343c565f405ed" style="width: 100.0%; height: 100.0%;">             <b>Little Italy</b><br>             Average Price: $235<br>             Average Rating: 4.73/5.0             </div>`)[0];
+                popup_2a9af65551694f0fac385c7b3098a31f.setContent(html_6555bd070296710fdb5343c565f405ed);
+            
+        
+
+        marker_08b15cd9fe2d6c44efe921a29f6e9f8d.bindPopup(popup_2a9af65551694f0fac385c7b3098a31f)
+        ;
+
+        
+    
+    
+            marker_08b15cd9fe2d6c44efe921a29f6e9f8d.bindTooltip(
+                `<div>
+                     Little Italy: $235
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_08b15cd9fe2d6c44efe921a29f6e9f8d.setIcon(icon_e7f758e4431c1ed51987693697227bc4);
+            
+    
+            var marker_b6ca28a3535d31bb73225f6067bdaca9 = L.marker(
+                [32.74677763549328, -117.23408752718329],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_f80bdad1ccf8a6c9ffac28db90171d16 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_62359286857e2cdf9e5277d4139fe17d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_332752e8341259629aeb8ab3b3c1a58d = $(`<div id="html_332752e8341259629aeb8ab3b3c1a58d" style="width: 100.0%; height: 100.0%;">             <b>Loma Portal</b><br>             Average Price: $240<br>             Average Rating: 4.88/5.0             </div>`)[0];
+                popup_62359286857e2cdf9e5277d4139fe17d.setContent(html_332752e8341259629aeb8ab3b3c1a58d);
+            
+        
+
+        marker_b6ca28a3535d31bb73225f6067bdaca9.bindPopup(popup_62359286857e2cdf9e5277d4139fe17d)
+        ;
+
+        
+    
+    
+            marker_b6ca28a3535d31bb73225f6067bdaca9.bindTooltip(
+                `<div>
+                     Loma Portal: $240
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b6ca28a3535d31bb73225f6067bdaca9.setIcon(icon_f80bdad1ccf8a6c9ffac28db90171d16);
+            
+    
+            var marker_f2aa2d9748e6de63ced32d62348c9fa1 = L.marker(
+                [32.63077282369605, -117.03091372600817],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_e50161d557308c7e60c09e9fe638518e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5737912605a1b56fae662976e4222af8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f25f2ae3e7afc5972057856ab8cf9cb1 = $(`<div id="html_f25f2ae3e7afc5972057856ab8cf9cb1" style="width: 100.0%; height: 100.0%;">             <b>Lynwood Hills</b><br>             Average Price: $204<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_5737912605a1b56fae662976e4222af8.setContent(html_f25f2ae3e7afc5972057856ab8cf9cb1);
+            
+        
+
+        marker_f2aa2d9748e6de63ced32d62348c9fa1.bindPopup(popup_5737912605a1b56fae662976e4222af8)
+        ;
+
+        
+    
+    
+            marker_f2aa2d9748e6de63ced32d62348c9fa1.bindTooltip(
+                `<div>
+                     Lynwood Hills: $204
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f2aa2d9748e6de63ced32d62348c9fa1.setIcon(icon_e50161d557308c7e60c09e9fe638518e);
+            
+    
+            var marker_bddb8072394a45020ced2bc81fd0d532 = L.marker(
+                [32.7115341630216, -117.16545140401897],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_b7a3d28afb9cba3d5dc3388dbcf44eb6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8ee3382c189530aa24cc810e857649f2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d4a2b6077fa31c40ad2539acef98d783 = $(`<div id="html_d4a2b6077fa31c40ad2539acef98d783" style="width: 100.0%; height: 100.0%;">             <b>Marina</b><br>             Average Price: $261<br>             Average Rating: 4.81/5.0             </div>`)[0];
+                popup_8ee3382c189530aa24cc810e857649f2.setContent(html_d4a2b6077fa31c40ad2539acef98d783);
+            
+        
+
+        marker_bddb8072394a45020ced2bc81fd0d532.bindPopup(popup_8ee3382c189530aa24cc810e857649f2)
+        ;
+
+        
+    
+    
+            marker_bddb8072394a45020ced2bc81fd0d532.bindTooltip(
+                `<div>
+                     Marina: $261
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bddb8072394a45020ced2bc81fd0d532.setIcon(icon_b7a3d28afb9cba3d5dc3388dbcf44eb6);
+            
+    
+            var marker_02ebb97f140f59ecd14eece318224440 = L.marker(
+                [32.7024351415258, -117.13592805985925],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_0b7612402e1d461cc5475acec0d96338 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cea5d5135fcb51739a4e678f50053ac0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_facde7b9d25e2c84769011cd41395ed5 = $(`<div id="html_facde7b9d25e2c84769011cd41395ed5" style="width: 100.0%; height: 100.0%;">             <b>Memorial</b><br>             Average Price: $207<br>             Average Rating: 4.82/5.0             </div>`)[0];
+                popup_cea5d5135fcb51739a4e678f50053ac0.setContent(html_facde7b9d25e2c84769011cd41395ed5);
+            
+        
+
+        marker_02ebb97f140f59ecd14eece318224440.bindPopup(popup_cea5d5135fcb51739a4e678f50053ac0)
+        ;
+
+        
+    
+    
+            marker_02ebb97f140f59ecd14eece318224440.bindTooltip(
+                `<div>
+                     Memorial: $207
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_02ebb97f140f59ecd14eece318224440.setIcon(icon_0b7612402e1d461cc5475acec0d96338);
+            
+    
+            var marker_f2d83d3d28f2fc641b25aa1c896e3146 = L.marker(
+                [32.742091841691256, -117.16451398891436],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_4ad84c07e2ed0fb470888122d8f5c10f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a84e2b0caf968b056a9d03d8480cba37 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5578a0f41286027637a68d353b26310e = $(`<div id="html_5578a0f41286027637a68d353b26310e" style="width: 100.0%; height: 100.0%;">             <b>Midtown</b><br>             Average Price: $256<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_a84e2b0caf968b056a9d03d8480cba37.setContent(html_5578a0f41286027637a68d353b26310e);
+            
+        
+
+        marker_f2d83d3d28f2fc641b25aa1c896e3146.bindPopup(popup_a84e2b0caf968b056a9d03d8480cba37)
+        ;
+
+        
+    
+    
+            marker_f2d83d3d28f2fc641b25aa1c896e3146.bindTooltip(
+                `<div>
+                     Midtown: $256
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f2d83d3d28f2fc641b25aa1c896e3146.setIcon(icon_4ad84c07e2ed0fb470888122d8f5c10f);
+            
+    
+            var marker_8757fe905c16dc57994e6f128146ad5d = L.marker(
+                [32.72722768916152, -117.21971517251832],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_b30399710206e20e49d6ab54d7c9fb07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d46dd158b5023b2f7fb464670eb6e24e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_52c362249e1b6bb5f8ad9420d9c1c016 = $(`<div id="html_52c362249e1b6bb5f8ad9420d9c1c016" style="width: 100.0%; height: 100.0%;">             <b>Midtown District</b><br>             Average Price: $346<br>             Average Rating: 4.55/5.0             </div>`)[0];
+                popup_d46dd158b5023b2f7fb464670eb6e24e.setContent(html_52c362249e1b6bb5f8ad9420d9c1c016);
+            
+        
+
+        marker_8757fe905c16dc57994e6f128146ad5d.bindPopup(popup_d46dd158b5023b2f7fb464670eb6e24e)
+        ;
+
+        
+    
+    
+            marker_8757fe905c16dc57994e6f128146ad5d.bindTooltip(
+                `<div>
+                     Midtown District: $346
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8757fe905c16dc57994e6f128146ad5d.setIcon(icon_b30399710206e20e49d6ab54d7c9fb07);
+            
+    
+            var marker_e83481bba494a63491da7e55f0b2f8d8 = L.marker(
+                [32.91780595996305, -117.14396695452935],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_3a19aa937edf414825069b2e764513ae = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7093a50bebd396c6553678fb06680bdb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71636032af3bc3533c4213bd907ee015 = $(`<div id="html_71636032af3bc3533c4213bd907ee015" style="width: 100.0%; height: 100.0%;">             <b>Mira Mesa</b><br>             Average Price: $168<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_7093a50bebd396c6553678fb06680bdb.setContent(html_71636032af3bc3533c4213bd907ee015);
+            
+        
+
+        marker_e83481bba494a63491da7e55f0b2f8d8.bindPopup(popup_7093a50bebd396c6553678fb06680bdb)
+        ;
+
+        
+    
+    
+            marker_e83481bba494a63491da7e55f0b2f8d8.bindTooltip(
+                `<div>
+                     Mira Mesa: $168
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e83481bba494a63491da7e55f0b2f8d8.setIcon(icon_3a19aa937edf414825069b2e764513ae);
+            
+    
+            var marker_671e6736ac91c37ca69ace750e4ca585 = L.marker(
+                [32.77436281500209, -117.24326677814753],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_023287e1560635a1f3c70abd2bca41ef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16d44b6429a37bf090eac92ca4e0fa2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e9e037d9f86423578890151681ccf10 = $(`<div id="html_8e9e037d9f86423578890151681ccf10" style="width: 100.0%; height: 100.0%;">             <b>Mission Bay</b><br>             Average Price: $493<br>             Average Rating: 4.82/5.0             </div>`)[0];
+                popup_16d44b6429a37bf090eac92ca4e0fa2b.setContent(html_8e9e037d9f86423578890151681ccf10);
+            
+        
+
+        marker_671e6736ac91c37ca69ace750e4ca585.bindPopup(popup_16d44b6429a37bf090eac92ca4e0fa2b)
+        ;
+
+        
+    
+    
+            marker_671e6736ac91c37ca69ace750e4ca585.bindTooltip(
+                `<div>
+                     Mission Bay: $493
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_671e6736ac91c37ca69ace750e4ca585.setIcon(icon_023287e1560635a1f3c70abd2bca41ef);
+            
+    
+            var marker_cde9976ccecb4cab2b8a5a59d2feb815 = L.marker(
+                [32.76918351644608, -117.1566513303576],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_34aa711322c29a8d4d34f5ce9860c449 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1efc3fcb5b1060ec5d3322e77062da70 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a380dde4b0a13fca21ece0c022543348 = $(`<div id="html_a380dde4b0a13fca21ece0c022543348" style="width: 100.0%; height: 100.0%;">             <b>Mission Valley</b><br>             Average Price: $165<br>             Average Rating: 4.70/5.0             </div>`)[0];
+                popup_1efc3fcb5b1060ec5d3322e77062da70.setContent(html_a380dde4b0a13fca21ece0c022543348);
+            
+        
+
+        marker_cde9976ccecb4cab2b8a5a59d2feb815.bindPopup(popup_1efc3fcb5b1060ec5d3322e77062da70)
+        ;
+
+        
+    
+    
+            marker_cde9976ccecb4cab2b8a5a59d2feb815.bindTooltip(
+                `<div>
+                     Mission Valley: $165
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cde9976ccecb4cab2b8a5a59d2feb815.setIcon(icon_34aa711322c29a8d4d34f5ce9860c449);
+            
+    
+            var marker_9ba79258b7cfa9ab96c0f2ce06850e88 = L.marker(
+                [32.76939512707399, -117.19324072394785],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_14e4e651cb9c532d889247ff913429fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e027a5b033a617a58aaf3d831356103 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b63553f52578e0f60865707895cbc2e3 = $(`<div id="html_b63553f52578e0f60865707895cbc2e3" style="width: 100.0%; height: 100.0%;">             <b>Moreno Mission</b><br>             Average Price: $267<br>             Average Rating: 4.79/5.0             </div>`)[0];
+                popup_8e027a5b033a617a58aaf3d831356103.setContent(html_b63553f52578e0f60865707895cbc2e3);
+            
+        
+
+        marker_9ba79258b7cfa9ab96c0f2ce06850e88.bindPopup(popup_8e027a5b033a617a58aaf3d831356103)
+        ;
+
+        
+    
+    
+            marker_9ba79258b7cfa9ab96c0f2ce06850e88.bindTooltip(
+                `<div>
+                     Moreno Mission: $267
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9ba79258b7cfa9ab96c0f2ce06850e88.setIcon(icon_14e4e651cb9c532d889247ff913429fe);
+            
+    
+            var marker_8c0235cbd6388a5d505d658b9f119da4 = L.marker(
+                [32.71168679018667, -117.10770971378999],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_9a36c7c0543077495b41481f0fec425b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b14556a07a49336d79109821696304f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b1011f02d3f9e026b02089d83c8107ae = $(`<div id="html_b1011f02d3f9e026b02089d83c8107ae" style="width: 100.0%; height: 100.0%;">             <b>Mount Hope</b><br>             Average Price: $295<br>             Average Rating: 4.79/5.0             </div>`)[0];
+                popup_b14556a07a49336d79109821696304f3.setContent(html_b1011f02d3f9e026b02089d83c8107ae);
+            
+        
+
+        marker_8c0235cbd6388a5d505d658b9f119da4.bindPopup(popup_b14556a07a49336d79109821696304f3)
+        ;
+
+        
+    
+    
+            marker_8c0235cbd6388a5d505d658b9f119da4.bindTooltip(
+                `<div>
+                     Mount Hope: $295
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8c0235cbd6388a5d505d658b9f119da4.setIcon(icon_9a36c7c0543077495b41481f0fec425b);
+            
+    
+            var marker_6da4e058e7af7a8e6c3b83be76e00722 = L.marker(
+                [32.69753930657051, -117.1088007814984],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_c97d2ac5cfcd59ed78be8cfab8152f67 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae0de2cc4b2d0aa6000eb0ef420038bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43c6ec855eac9b5eaa6d7651d7bd59a5 = $(`<div id="html_43c6ec855eac9b5eaa6d7651d7bd59a5" style="width: 100.0%; height: 100.0%;">             <b>Mountain View</b><br>             Average Price: $326<br>             Average Rating: 4.78/5.0             </div>`)[0];
+                popup_ae0de2cc4b2d0aa6000eb0ef420038bb.setContent(html_43c6ec855eac9b5eaa6d7651d7bd59a5);
+            
+        
+
+        marker_6da4e058e7af7a8e6c3b83be76e00722.bindPopup(popup_ae0de2cc4b2d0aa6000eb0ef420038bb)
+        ;
+
+        
+    
+    
+            marker_6da4e058e7af7a8e6c3b83be76e00722.bindTooltip(
+                `<div>
+                     Mountain View: $326
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6da4e058e7af7a8e6c3b83be76e00722.setIcon(icon_c97d2ac5cfcd59ed78be8cfab8152f67);
+            
+    
+            var marker_24fadb3621ccfacb3b764677d7b7abd2 = L.marker(
+                [32.57234136892273, -117.08636693922232],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_825015856a5b74cabe32a73401ccf5dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72e1a60768887dfd854cb822729a4a41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e38c65126e710283e105b9f238c63adb = $(`<div id="html_e38c65126e710283e105b9f238c63adb" style="width: 100.0%; height: 100.0%;">             <b>Nestor</b><br>             Average Price: $265<br>             Average Rating: 4.93/5.0             </div>`)[0];
+                popup_72e1a60768887dfd854cb822729a4a41.setContent(html_e38c65126e710283e105b9f238c63adb);
+            
+        
+
+        marker_24fadb3621ccfacb3b764677d7b7abd2.bindPopup(popup_72e1a60768887dfd854cb822729a4a41)
+        ;
+
+        
+    
+    
+            marker_24fadb3621ccfacb3b764677d7b7abd2.bindTooltip(
+                `<div>
+                     Nestor: $265
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_24fadb3621ccfacb3b764677d7b7abd2.setIcon(icon_825015856a5b74cabe32a73401ccf5dd);
+            
+    
+            var marker_c5066e81a8bdb481819b0d6b5ef8b41c = L.marker(
+                [32.762945396319964, -117.11871275019199],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_b9321feaebce4d9c30cf999fec5ada7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cbeed01afb906311f7a3cd70ac7403ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0039166259b8b38ff4018a61c5218bea = $(`<div id="html_0039166259b8b38ff4018a61c5218bea" style="width: 100.0%; height: 100.0%;">             <b>Normal Heights</b><br>             Average Price: $182<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_cbeed01afb906311f7a3cd70ac7403ec.setContent(html_0039166259b8b38ff4018a61c5218bea);
+            
+        
+
+        marker_c5066e81a8bdb481819b0d6b5ef8b41c.bindPopup(popup_cbeed01afb906311f7a3cd70ac7403ec)
+        ;
+
+        
+    
+    
+            marker_c5066e81a8bdb481819b0d6b5ef8b41c.bindTooltip(
+                `<div>
+                     Normal Heights: $182
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c5066e81a8bdb481819b0d6b5ef8b41c.setIcon(icon_b9321feaebce4d9c30cf999fec5ada7e);
+            
+    
+            var marker_236264d7639436334ed164a595df10f1 = L.marker(
+                [32.96472533488152, -117.23375646119476],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_3aafc46894f28bbad9a8511263da90b5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_177d590a324497679df1faffb7ce676d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f083bb3ce11f0f706199e24015896ab7 = $(`<div id="html_f083bb3ce11f0f706199e24015896ab7" style="width: 100.0%; height: 100.0%;">             <b>North City</b><br>             Average Price: $500<br>             Average Rating: 4.88/5.0             </div>`)[0];
+                popup_177d590a324497679df1faffb7ce676d.setContent(html_f083bb3ce11f0f706199e24015896ab7);
+            
+        
+
+        marker_236264d7639436334ed164a595df10f1.bindPopup(popup_177d590a324497679df1faffb7ce676d)
+        ;
+
+        
+    
+    
+            marker_236264d7639436334ed164a595df10f1.bindTooltip(
+                `<div>
+                     North City: $500
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_236264d7639436334ed164a595df10f1.setIcon(icon_3aafc46894f28bbad9a8511263da90b5);
+            
+    
+            var marker_2fccb64608576e249234d0e6c8aa79f8 = L.marker(
+                [32.83581648167987, -117.19444618568916],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_c9ec601e53b7db3d3e2a56b172a37a89 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa8f40fd68e84a807d67a0f77c214152 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69a22ce048e4ae2a432b1f26a344eaa3 = $(`<div id="html_69a22ce048e4ae2a432b1f26a344eaa3" style="width: 100.0%; height: 100.0%;">             <b>North Clairemont</b><br>             Average Price: $211<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_aa8f40fd68e84a807d67a0f77c214152.setContent(html_69a22ce048e4ae2a432b1f26a344eaa3);
+            
+        
+
+        marker_2fccb64608576e249234d0e6c8aa79f8.bindPopup(popup_aa8f40fd68e84a807d67a0f77c214152)
+        ;
+
+        
+    
+    
+            marker_2fccb64608576e249234d0e6c8aa79f8.bindTooltip(
+                `<div>
+                     North Clairemont: $211
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2fccb64608576e249234d0e6c8aa79f8.setIcon(icon_c9ec601e53b7db3d3e2a56b172a37a89);
+            
+    
+            var marker_4d9f3c23b0d8ea4e224ac5e166572e3b = L.marker(
+                [32.745956513086476, -117.13178033543132],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_beda91994092134583a65345c37bbe1e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d87747c1d4ab25a2ace7c2bd4b834434 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eafdf98822f2eeeca4ed0d14fcf4c9e8 = $(`<div id="html_eafdf98822f2eeeca4ed0d14fcf4c9e8" style="width: 100.0%; height: 100.0%;">             <b>North Hills</b><br>             Average Price: $191<br>             Average Rating: 4.87/5.0             </div>`)[0];
+                popup_d87747c1d4ab25a2ace7c2bd4b834434.setContent(html_eafdf98822f2eeeca4ed0d14fcf4c9e8);
+            
+        
+
+        marker_4d9f3c23b0d8ea4e224ac5e166572e3b.bindPopup(popup_d87747c1d4ab25a2ace7c2bd4b834434)
+        ;
+
+        
+    
+    
+            marker_4d9f3c23b0d8ea4e224ac5e166572e3b.bindTooltip(
+                `<div>
+                     North Hills: $191
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4d9f3c23b0d8ea4e224ac5e166572e3b.setIcon(icon_beda91994092134583a65345c37bbe1e);
+            
+    
+            var marker_db0c77c9e4062b364f01a24effdc68f9 = L.marker(
+                [32.63450334397787, -117.07817046106669],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_14c00eae4f58871daf74810893d8e08e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_12a316cfc880b58eb874c350b3e34879 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca56720605519400ec6f042f87a123d6 = $(`<div id="html_ca56720605519400ec6f042f87a123d6" style="width: 100.0%; height: 100.0%;">             <b>Northwest</b><br>             Average Price: $213<br>             Average Rating: 4.85/5.0             </div>`)[0];
+                popup_12a316cfc880b58eb874c350b3e34879.setContent(html_ca56720605519400ec6f042f87a123d6);
+            
+        
+
+        marker_db0c77c9e4062b364f01a24effdc68f9.bindPopup(popup_12a316cfc880b58eb874c350b3e34879)
+        ;
+
+        
+    
+    
+            marker_db0c77c9e4062b364f01a24effdc68f9.bindTooltip(
+                `<div>
+                     Northwest: $213
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_db0c77c9e4062b364f01a24effdc68f9.setIcon(icon_14c00eae4f58871daf74810893d8e08e);
+            
+    
+            var marker_cbc782bef3f775491e50bfbeadc3a916 = L.marker(
+                [32.7365292766323, -117.07107113882076],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_1d95331e75e510e9577c27caa5f27f12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc99f1ffd1d713b1dbc7f90c492797bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37959d24bb5f7d1583c6eb0ee5949802 = $(`<div id="html_37959d24bb5f7d1583c6eb0ee5949802" style="width: 100.0%; height: 100.0%;">             <b>Oak Park</b><br>             Average Price: $190<br>             Average Rating: 4.84/5.0             </div>`)[0];
+                popup_dc99f1ffd1d713b1dbc7f90c492797bf.setContent(html_37959d24bb5f7d1583c6eb0ee5949802);
+            
+        
+
+        marker_cbc782bef3f775491e50bfbeadc3a916.bindPopup(popup_dc99f1ffd1d713b1dbc7f90c492797bf)
+        ;
+
+        
+    
+    
+            marker_cbc782bef3f775491e50bfbeadc3a916.bindTooltip(
+                `<div>
+                     Oak Park: $190
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cbc782bef3f775491e50bfbeadc3a916.setIcon(icon_1d95331e75e510e9577c27caa5f27f12);
+            
+    
+            var marker_1e8f206ff5b1c1cfd20d18971a5731a7 = L.marker(
+                [32.746196627556465, -117.24979976020703],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_6d662bdbf9c248173a2b3dc220450b29 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ea99d855d82d7ab906b5091d7a099121 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b6fc68e8ab0bc1942211882cfe7dcdc = $(`<div id="html_1b6fc68e8ab0bc1942211882cfe7dcdc" style="width: 100.0%; height: 100.0%;">             <b>Ocean Beach</b><br>             Average Price: $284<br>             Average Rating: 4.83/5.0             </div>`)[0];
+                popup_ea99d855d82d7ab906b5091d7a099121.setContent(html_1b6fc68e8ab0bc1942211882cfe7dcdc);
+            
+        
+
+        marker_1e8f206ff5b1c1cfd20d18971a5731a7.bindPopup(popup_ea99d855d82d7ab906b5091d7a099121)
+        ;
+
+        
+    
+    
+            marker_1e8f206ff5b1c1cfd20d18971a5731a7.bindTooltip(
+                `<div>
+                     Ocean Beach: $284
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1e8f206ff5b1c1cfd20d18971a5731a7.setIcon(icon_6d662bdbf9c248173a2b3dc220450b29);
+            
+    
+            var marker_3829fb6e59c7ad8d4f56636fd638b784 = L.marker(
+                [32.750097035007265, -117.18006542462172],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_721808c18231d8072a0218b02de552a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_101cb975ee3e8d3e744414f33a886f88 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a39f0ad8ef1b8fb06a649d3ad303a46 = $(`<div id="html_8a39f0ad8ef1b8fb06a649d3ad303a46" style="width: 100.0%; height: 100.0%;">             <b>Old Town</b><br>             Average Price: $277<br>             Average Rating: 4.84/5.0             </div>`)[0];
+                popup_101cb975ee3e8d3e744414f33a886f88.setContent(html_8a39f0ad8ef1b8fb06a649d3ad303a46);
+            
+        
+
+        marker_3829fb6e59c7ad8d4f56636fd638b784.bindPopup(popup_101cb975ee3e8d3e744414f33a886f88)
+        ;
+
+        
+    
+    
+            marker_3829fb6e59c7ad8d4f56636fd638b784.bindTooltip(
+                `<div>
+                     Old Town: $277
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3829fb6e59c7ad8d4f56636fd638b784.setIcon(icon_721808c18231d8072a0218b02de552a4);
+            
+    
+            var marker_3a12eb6346b88f77db45be50509d9584 = L.marker(
+                [32.61955154596049, -116.97689134682375],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_b39001a65981490a84a8d33fdbf00f9c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_597c4fe0c01f3931f9406b85d0c4c034 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_862090d3836fe489efd5a6b10c6c4560 = $(`<div id="html_862090d3836fe489efd5a6b10c6c4560" style="width: 100.0%; height: 100.0%;">             <b>Otay Ranch</b><br>             Average Price: $154<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_597c4fe0c01f3931f9406b85d0c4c034.setContent(html_862090d3836fe489efd5a6b10c6c4560);
+            
+        
+
+        marker_3a12eb6346b88f77db45be50509d9584.bindPopup(popup_597c4fe0c01f3931f9406b85d0c4c034)
+        ;
+
+        
+    
+    
+            marker_3a12eb6346b88f77db45be50509d9584.bindTooltip(
+                `<div>
+                     Otay Ranch: $154
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a12eb6346b88f77db45be50509d9584.setIcon(icon_b39001a65981490a84a8d33fdbf00f9c);
+            
+    
+            var marker_74ae6cbf9dbdfbfe4f504e2482f0e581 = L.marker(
+                [32.80116254684028, -117.24653839124011],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_d258dc06b0e4a1990b5a454715ea722d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8382535d00e6997346314d2ce401088a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6dff22727f2d2ba77ceaebcc4ec7e24c = $(`<div id="html_6dff22727f2d2ba77ceaebcc4ec7e24c" style="width: 100.0%; height: 100.0%;">             <b>Pacific Beach</b><br>             Average Price: $357<br>             Average Rating: 4.82/5.0             </div>`)[0];
+                popup_8382535d00e6997346314d2ce401088a.setContent(html_6dff22727f2d2ba77ceaebcc4ec7e24c);
+            
+        
+
+        marker_74ae6cbf9dbdfbfe4f504e2482f0e581.bindPopup(popup_8382535d00e6997346314d2ce401088a)
+        ;
+
+        
+    
+    
+            marker_74ae6cbf9dbdfbfe4f504e2482f0e581.bindTooltip(
+                `<div>
+                     Pacific Beach: $357
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_74ae6cbf9dbdfbfe4f504e2482f0e581.setIcon(icon_d258dc06b0e4a1990b5a454715ea722d);
+            
+    
+            var marker_a20e967d4a9991cec73e25c5ee64d873 = L.marker(
+                [32.583512087796315, -117.07566679389225],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_dc8039103dade8d96819a3e2ba50ce23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f515e61a21d7d2ad6008cdc5543bfc14 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab84ee1b398ee466df383abbd804cb80 = $(`<div id="html_ab84ee1b398ee466df383abbd804cb80" style="width: 100.0%; height: 100.0%;">             <b>Palm City</b><br>             Average Price: $181<br>             Average Rating: 4.96/5.0             </div>`)[0];
+                popup_f515e61a21d7d2ad6008cdc5543bfc14.setContent(html_ab84ee1b398ee466df383abbd804cb80);
+            
+        
+
+        marker_a20e967d4a9991cec73e25c5ee64d873.bindPopup(popup_f515e61a21d7d2ad6008cdc5543bfc14)
+        ;
+
+        
+    
+    
+            marker_a20e967d4a9991cec73e25c5ee64d873.bindTooltip(
+                `<div>
+                     Palm City: $181
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a20e967d4a9991cec73e25c5ee64d873.setIcon(icon_dc8039103dade8d96819a3e2ba50ce23);
+            
+    
+            var marker_51268dc88e5e9f62d01895a67a38d80d = L.marker(
+                [32.674595307894954, -117.05669554836672],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_decec611b4d400aee750bb5a2dc800b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_75fb8b84bceb38541b8151690d0b2349 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_196ea3e8166591fa41cb7d855a00390f = $(`<div id="html_196ea3e8166591fa41cb7d855a00390f" style="width: 100.0%; height: 100.0%;">             <b>Paradise Hills</b><br>             Average Price: $206<br>             Average Rating: 4.81/5.0             </div>`)[0];
+                popup_75fb8b84bceb38541b8151690d0b2349.setContent(html_196ea3e8166591fa41cb7d855a00390f);
+            
+        
+
+        marker_51268dc88e5e9f62d01895a67a38d80d.bindPopup(popup_75fb8b84bceb38541b8151690d0b2349)
+        ;
+
+        
+    
+    
+            marker_51268dc88e5e9f62d01895a67a38d80d.bindTooltip(
+                `<div>
+                     Paradise Hills: $206
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_51268dc88e5e9f62d01895a67a38d80d.setIcon(icon_decec611b4d400aee750bb5a2dc800b2);
+            
+    
+            var marker_f96d9474ab0f4cd02c6b2651c7e66f27 = L.marker(
+                [32.72718130725181, -117.16298732141037],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_81ef98015fa4297ed37a65b8534b1fb8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b8e4c231f22bd565575d68bb722e0a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53842886e85f92d931dcb385fdd2c5c9 = $(`<div id="html_53842886e85f92d931dcb385fdd2c5c9" style="width: 100.0%; height: 100.0%;">             <b>Park West</b><br>             Average Price: $191<br>             Average Rating: 4.73/5.0             </div>`)[0];
+                popup_6b8e4c231f22bd565575d68bb722e0a0.setContent(html_53842886e85f92d931dcb385fdd2c5c9);
+            
+        
+
+        marker_f96d9474ab0f4cd02c6b2651c7e66f27.bindPopup(popup_6b8e4c231f22bd565575d68bb722e0a0)
+        ;
+
+        
+    
+    
+            marker_f96d9474ab0f4cd02c6b2651c7e66f27.bindTooltip(
+                `<div>
+                     Park West: $191
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f96d9474ab0f4cd02c6b2651c7e66f27.setIcon(icon_81ef98015fa4297ed37a65b8534b1fb8);
+            
+    
+            var marker_0cc589ad4dc934d33265c22ce809eea8 = L.marker(
+                [32.63051742788064, -117.013202528829],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_7b643bc4b645141c840034058f618af1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f5961e88ac05caf3b274e2479cc7f9bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0636cde079c8f0ea1eb14e173efa6684 = $(`<div id="html_0636cde079c8f0ea1eb14e173efa6684" style="width: 100.0%; height: 100.0%;">             <b>Paseo Ranchoero</b><br>             Average Price: $135<br>             Average Rating: 4.92/5.0             </div>`)[0];
+                popup_f5961e88ac05caf3b274e2479cc7f9bf.setContent(html_0636cde079c8f0ea1eb14e173efa6684);
+            
+        
+
+        marker_0cc589ad4dc934d33265c22ce809eea8.bindPopup(popup_f5961e88ac05caf3b274e2479cc7f9bf)
+        ;
+
+        
+    
+    
+            marker_0cc589ad4dc934d33265c22ce809eea8.bindTooltip(
+                `<div>
+                     Paseo Ranchoero: $135
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0cc589ad4dc934d33265c22ce809eea8.setIcon(icon_7b643bc4b645141c840034058f618af1);
+            
+    
+            var marker_86074ec34c01726480c363ad0fb85cf4 = L.marker(
+                [33.02605508742979, -117.06985538738292],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_f0f8dba64ece309efed8f3deda94c054 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c857c5c29a757361e43de33a87aecfe1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9372b83e80b78f1ab9fb414cd9199809 = $(`<div id="html_9372b83e80b78f1ab9fb414cd9199809" style="width: 100.0%; height: 100.0%;">             <b>Rancho Bernadino</b><br>             Average Price: $272<br>             Average Rating: 4.88/5.0             </div>`)[0];
+                popup_c857c5c29a757361e43de33a87aecfe1.setContent(html_9372b83e80b78f1ab9fb414cd9199809);
+            
+        
+
+        marker_86074ec34c01726480c363ad0fb85cf4.bindPopup(popup_c857c5c29a757361e43de33a87aecfe1)
+        ;
+
+        
+    
+    
+            marker_86074ec34c01726480c363ad0fb85cf4.bindTooltip(
+                `<div>
+                     Rancho Bernadino: $272
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86074ec34c01726480c363ad0fb85cf4.setIcon(icon_f0f8dba64ece309efed8f3deda94c054);
+            
+    
+            var marker_1932d42741f57d0261b812371acad610 = L.marker(
+                [32.643449865989645, -117.0256413431264],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_d3335900fb3126f21368d88634cbf7fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6ed62a8a1af69345f56b03a7fd795bb2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_55d81ededc5b81a1aeea4f86564e5035 = $(`<div id="html_55d81ededc5b81a1aeea4f86564e5035" style="width: 100.0%; height: 100.0%;">             <b>Rancho Del Rey</b><br>             Average Price: $227<br>             Average Rating: 4.77/5.0             </div>`)[0];
+                popup_6ed62a8a1af69345f56b03a7fd795bb2.setContent(html_55d81ededc5b81a1aeea4f86564e5035);
+            
+        
+
+        marker_1932d42741f57d0261b812371acad610.bindPopup(popup_6ed62a8a1af69345f56b03a7fd795bb2)
+        ;
+
+        
+    
+    
+            marker_1932d42741f57d0261b812371acad610.bindTooltip(
+                `<div>
+                     Rancho Del Rey: $227
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1932d42741f57d0261b812371acad610.setIcon(icon_d3335900fb3126f21368d88634cbf7fa);
+            
+    
+            var marker_8bd3842ddf7ab1820565b01c3c447370 = L.marker(
+                [32.96798512447757, -117.12925446905602],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_e8849fb8093543c6c886c4bd5b04a3f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76df5dba14414a3999aaf7a604378804 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_88d0f84bb4713c3103797ac883edcccb = $(`<div id="html_88d0f84bb4713c3103797ac883edcccb" style="width: 100.0%; height: 100.0%;">             <b>Rancho Penasquitos</b><br>             Average Price: $214<br>             Average Rating: 4.79/5.0             </div>`)[0];
+                popup_76df5dba14414a3999aaf7a604378804.setContent(html_88d0f84bb4713c3103797ac883edcccb);
+            
+        
+
+        marker_8bd3842ddf7ab1820565b01c3c447370.bindPopup(popup_76df5dba14414a3999aaf7a604378804)
+        ;
+
+        
+    
+    
+            marker_8bd3842ddf7ab1820565b01c3c447370.bindTooltip(
+                `<div>
+                     Rancho Penasquitos: $214
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8bd3842ddf7ab1820565b01c3c447370.setIcon(icon_e8849fb8093543c6c886c4bd5b04a3f9);
+            
+    
+            var marker_22a66112a5ecbd4b2c825959187c1630 = L.marker(
+                [32.76187224936114, -117.05583244981707],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_5d8d983d776696db81baf3a89f72b263 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e0977a4d491e47f0f04c4ddc848ac6b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_258a74d6f5da31acbfcce5abcb9f8ef9 = $(`<div id="html_258a74d6f5da31acbfcce5abcb9f8ef9" style="width: 100.0%; height: 100.0%;">             <b>Rolando</b><br>             Average Price: $159<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_e0977a4d491e47f0f04c4ddc848ac6b5.setContent(html_258a74d6f5da31acbfcce5abcb9f8ef9);
+            
+        
+
+        marker_22a66112a5ecbd4b2c825959187c1630.bindPopup(popup_e0977a4d491e47f0f04c4ddc848ac6b5)
+        ;
+
+        
+    
+    
+            marker_22a66112a5ecbd4b2c825959187c1630.bindTooltip(
+                `<div>
+                     Rolando: $159
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_22a66112a5ecbd4b2c825959187c1630.setIcon(icon_5d8d983d776696db81baf3a89f72b263);
+            
+    
+            var marker_a21ec1a52fe9ff60da1e15fbb4a12a9d = L.marker(
+                [32.66562394582109, -116.95415014917525],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_79f01171ff4fa1b022be593b6cd2d9b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6fa6b3d2f013b841da6efb2aaf564a65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3a72572e0307e41c5c88e607df6333e = $(`<div id="html_e3a72572e0307e41c5c88e607df6333e" style="width: 100.0%; height: 100.0%;">             <b>Rolling Hills Ranch</b><br>             Average Price: $159<br>             Average Rating: 4.93/5.0             </div>`)[0];
+                popup_6fa6b3d2f013b841da6efb2aaf564a65.setContent(html_e3a72572e0307e41c5c88e607df6333e);
+            
+        
+
+        marker_a21ec1a52fe9ff60da1e15fbb4a12a9d.bindPopup(popup_6fa6b3d2f013b841da6efb2aaf564a65)
+        ;
+
+        
+    
+    
+            marker_a21ec1a52fe9ff60da1e15fbb4a12a9d.bindTooltip(
+                `<div>
+                     Rolling Hills Ranch: $159
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a21ec1a52fe9ff60da1e15fbb4a12a9d.setIcon(icon_79f01171ff4fa1b022be593b6cd2d9b2);
+            
+    
+            var marker_21935a4cb9d1a2f67ebfeabd4f9aa31e = L.marker(
+                [32.7312125041205, -117.22821711134765],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_bed0b81d9aac425c7bedcbe6d152a14f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_37445def72a02ce3d2509c5e39b1538c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4af5f863be92d64721639d645be604a = $(`<div id="html_c4af5f863be92d64721639d645be604a" style="width: 100.0%; height: 100.0%;">             <b>Roseville</b><br>             Average Price: $299<br>             Average Rating: 4.90/5.0             </div>`)[0];
+                popup_37445def72a02ce3d2509c5e39b1538c.setContent(html_c4af5f863be92d64721639d645be604a);
+            
+        
+
+        marker_21935a4cb9d1a2f67ebfeabd4f9aa31e.bindPopup(popup_37445def72a02ce3d2509c5e39b1538c)
+        ;
+
+        
+    
+    
+            marker_21935a4cb9d1a2f67ebfeabd4f9aa31e.bindTooltip(
+                `<div>
+                     Roseville: $299
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_21935a4cb9d1a2f67ebfeabd4f9aa31e.setIcon(icon_bed0b81d9aac425c7bedcbe6d152a14f);
+            
+    
+            var marker_0f3f5e4a8671bdc6e106f47dd45cde11 = L.marker(
+                [32.94797753538347, -117.08764546642207],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_833bf1756a57f45d209e52b66b39762d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa1032a45c8001921e99540595ca4acc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a3d8d2b43330585e3be79933d221470 = $(`<div id="html_1a3d8d2b43330585e3be79933d221470" style="width: 100.0%; height: 100.0%;">             <b>Sabre Springs</b><br>             Average Price: $193<br>             Average Rating: 4.93/5.0             </div>`)[0];
+                popup_aa1032a45c8001921e99540595ca4acc.setContent(html_1a3d8d2b43330585e3be79933d221470);
+            
+        
+
+        marker_0f3f5e4a8671bdc6e106f47dd45cde11.bindPopup(popup_aa1032a45c8001921e99540595ca4acc)
+        ;
+
+        
+    
+    
+            marker_0f3f5e4a8671bdc6e106f47dd45cde11.bindTooltip(
+                `<div>
+                     Sabre Springs: $193
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f3f5e4a8671bdc6e106f47dd45cde11.setIcon(icon_833bf1756a57f45d209e52b66b39762d);
+            
+    
+            var marker_df964e1949bac103c00d44fc49178708 = L.marker(
+                [32.799055849248944, -117.06065746320265],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_a2a5be517c47633203bc76fc5bea31c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ea7b5958a8b6fbb7ac1d48ed483790cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_011535dc9d8e4c41a43b705e2ddfce97 = $(`<div id="html_011535dc9d8e4c41a43b705e2ddfce97" style="width: 100.0%; height: 100.0%;">             <b>San Carlos</b><br>             Average Price: $287<br>             Average Rating: 4.90/5.0             </div>`)[0];
+                popup_ea7b5958a8b6fbb7ac1d48ed483790cb.setContent(html_011535dc9d8e4c41a43b705e2ddfce97);
+            
+        
+
+        marker_df964e1949bac103c00d44fc49178708.bindPopup(popup_ea7b5958a8b6fbb7ac1d48ed483790cb)
+        ;
+
+        
+    
+    
+            marker_df964e1949bac103c00d44fc49178708.bindTooltip(
+                `<div>
+                     San Carlos: $287
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_df964e1949bac103c00d44fc49178708.setIcon(icon_a2a5be517c47633203bc76fc5bea31c9);
+            
+    
+            var marker_114d33bb2bc9b6694388b6cc9d20c652 = L.marker(
+                [32.560198961229986, -117.0542876405271],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_ebedd40e9615f8383adac404df34688d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c968d2f1a0ea9f45741069c0c43d95c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a584bc93b819d654fb3cba50950b447a = $(`<div id="html_a584bc93b819d654fb3cba50950b447a" style="width: 100.0%; height: 100.0%;">             <b>San Ysidro</b><br>             Average Price: $147<br>             Average Rating: 4.82/5.0             </div>`)[0];
+                popup_c968d2f1a0ea9f45741069c0c43d95c3.setContent(html_a584bc93b819d654fb3cba50950b447a);
+            
+        
+
+        marker_114d33bb2bc9b6694388b6cc9d20c652.bindPopup(popup_c968d2f1a0ea9f45741069c0c43d95c3)
+        ;
+
+        
+    
+    
+            marker_114d33bb2bc9b6694388b6cc9d20c652.bindTooltip(
+                `<div>
+                     San Ysidro: $147
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_114d33bb2bc9b6694388b6cc9d20c652.setIcon(icon_ebedd40e9615f8383adac404df34688d);
+            
+    
+            var marker_632a15a0f279abc11619356959b87b6e = L.marker(
+                [32.91157655612188, -117.0780846416854],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_c5f3fe72dc50aa7f27e70a8573bdb305 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9ca7b35a381705d9613eb0546623f461 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e82eaa450b13b97ece5e78a3b27d3c4f = $(`<div id="html_e82eaa450b13b97ece5e78a3b27d3c4f" style="width: 100.0%; height: 100.0%;">             <b>Scripps Ranch</b><br>             Average Price: $206<br>             Average Rating: 4.89/5.0             </div>`)[0];
+                popup_9ca7b35a381705d9613eb0546623f461.setContent(html_e82eaa450b13b97ece5e78a3b27d3c4f);
+            
+        
+
+        marker_632a15a0f279abc11619356959b87b6e.bindPopup(popup_9ca7b35a381705d9613eb0546623f461)
+        ;
+
+        
+    
+    
+            marker_632a15a0f279abc11619356959b87b6e.bindTooltip(
+                `<div>
+                     Scripps Ranch: $206
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_632a15a0f279abc11619356959b87b6e.setIcon(icon_c5f3fe72dc50aa7f27e70a8573bdb305);
+            
+    
+            var marker_19a40a14127a73566f44de5ae2039502 = L.marker(
+                [32.79448892666299, -117.13529752862688],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_7817ccb36dcc2ac64c7bb1f507bbb4b4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27a9b1d35c842f62fa0657f4cb987c98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d9fe9983e522b35b473807943472af96 = $(`<div id="html_d9fe9983e522b35b473807943472af96" style="width: 100.0%; height: 100.0%;">             <b>Serra Mesa</b><br>             Average Price: $278<br>             Average Rating: 4.70/5.0             </div>`)[0];
+                popup_27a9b1d35c842f62fa0657f4cb987c98.setContent(html_d9fe9983e522b35b473807943472af96);
+            
+        
+
+        marker_19a40a14127a73566f44de5ae2039502.bindPopup(popup_27a9b1d35c842f62fa0657f4cb987c98)
+        ;
+
+        
+    
+    
+            marker_19a40a14127a73566f44de5ae2039502.bindTooltip(
+                `<div>
+                     Serra Mesa: $278
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_19a40a14127a73566f44de5ae2039502.setIcon(icon_7817ccb36dcc2ac64c7bb1f507bbb4b4);
+            
+    
+            var marker_7f44b947c8668de9607a088a4283412c = L.marker(
+                [32.70633100682308, -117.04777728424254],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_4d4d9af33cc79996224ac877c32007bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_00794b9e964e7da8c813e97ed4350fd6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c32cc3f951da45008df7d185a854c79d = $(`<div id="html_c32cc3f951da45008df7d185a854c79d" style="width: 100.0%; height: 100.0%;">             <b>Sky Line</b><br>             Average Price: $200<br>             Average Rating: 4.94/5.0             </div>`)[0];
+                popup_00794b9e964e7da8c813e97ed4350fd6.setContent(html_c32cc3f951da45008df7d185a854c79d);
+            
+        
+
+        marker_7f44b947c8668de9607a088a4283412c.bindPopup(popup_00794b9e964e7da8c813e97ed4350fd6)
+        ;
+
+        
+    
+    
+            marker_7f44b947c8668de9607a088a4283412c.bindTooltip(
+                `<div>
+                     Sky Line: $200
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f44b947c8668de9607a088a4283412c.setIcon(icon_4d4d9af33cc79996224ac877c32007bf);
+            
+    
+            var marker_30f43ad96e1891c52bc297972878ba47 = L.marker(
+                [32.89855426207541, -117.19041893104058],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_a7bace39f77d10de685645246bca3f71 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1d02818af69a5e615574795881cb39de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_56351cecc2f785691e8880d4a60be45d = $(`<div id="html_56351cecc2f785691e8880d4a60be45d" style="width: 100.0%; height: 100.0%;">             <b>Sorrento Valley</b><br>             Average Price: $182<br>             Average Rating: 4.98/5.0             </div>`)[0];
+                popup_1d02818af69a5e615574795881cb39de.setContent(html_56351cecc2f785691e8880d4a60be45d);
+            
+        
+
+        marker_30f43ad96e1891c52bc297972878ba47.bindPopup(popup_1d02818af69a5e615574795881cb39de)
+        ;
+
+        
+    
+    
+            marker_30f43ad96e1891c52bc297972878ba47.bindTooltip(
+                `<div>
+                     Sorrento Valley: $182
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_30f43ad96e1891c52bc297972878ba47.setIcon(icon_a7bace39f77d10de685645246bca3f71);
+            
+    
+            var marker_a491483508d0e1876eaf675820e68f57 = L.marker(
+                [32.721977706016936, -117.12550785644183],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_25a273b402eab290c401485bc026cb70 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d751c5a2b371bec2a76c948dc3c32e04 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d3b3d353f973b46257492ade4e3fafb = $(`<div id="html_3d3b3d353f973b46257492ade4e3fafb" style="width: 100.0%; height: 100.0%;">             <b>South Park</b><br>             Average Price: $186<br>             Average Rating: 4.87/5.0             </div>`)[0];
+                popup_d751c5a2b371bec2a76c948dc3c32e04.setContent(html_3d3b3d353f973b46257492ade4e3fafb);
+            
+        
+
+        marker_a491483508d0e1876eaf675820e68f57.bindPopup(popup_d751c5a2b371bec2a76c948dc3c32e04)
+        ;
+
+        
+    
+    
+            marker_a491483508d0e1876eaf675820e68f57.bindTooltip(
+                `<div>
+                     South Park: $186
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a491483508d0e1876eaf675820e68f57.setIcon(icon_25a273b402eab290c401485bc026cb70);
+            
+    
+            var marker_ec6c18df552b5e4733414bf0634583e0 = L.marker(
+                [32.69123338573598, -117.10712004146134],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_c081fce386fea88e442e155eb42f3877 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3adfdb1aa7aacab4fe4558aa108d5057 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4eaedc65019c7930a1981adfda5cdf15 = $(`<div id="html_4eaedc65019c7930a1981adfda5cdf15" style="width: 100.0%; height: 100.0%;">             <b>Southcrest</b><br>             Average Price: $137<br>             Average Rating: 4.47/5.0             </div>`)[0];
+                popup_3adfdb1aa7aacab4fe4558aa108d5057.setContent(html_4eaedc65019c7930a1981adfda5cdf15);
+            
+        
+
+        marker_ec6c18df552b5e4733414bf0634583e0.bindPopup(popup_3adfdb1aa7aacab4fe4558aa108d5057)
+        ;
+
+        
+    
+    
+            marker_ec6c18df552b5e4733414bf0634583e0.bindTooltip(
+                `<div>
+                     Southcrest: $137
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ec6c18df552b5e4733414bf0634583e0.setIcon(icon_c081fce386fea88e442e155eb42f3877);
+            
+    
+            var marker_ab626417fbac5064a0030372be0d1c9e = L.marker(
+                [32.61187761130269, -117.0572439712944],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_e82576e252305a03ca704e5d1b481a90 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae54f463831acc804fb570e3807515aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd044638958882b9991fbf85db9be1da = $(`<div id="html_dd044638958882b9991fbf85db9be1da" style="width: 100.0%; height: 100.0%;">             <b>Southwest</b><br>             Average Price: $182<br>             Average Rating: 4.81/5.0             </div>`)[0];
+                popup_ae54f463831acc804fb570e3807515aa.setContent(html_dd044638958882b9991fbf85db9be1da);
+            
+        
+
+        marker_ab626417fbac5064a0030372be0d1c9e.bindPopup(popup_ae54f463831acc804fb570e3807515aa)
+        ;
+
+        
+    
+    
+            marker_ab626417fbac5064a0030372be0d1c9e.bindTooltip(
+                `<div>
+                     Southwest: $182
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab626417fbac5064a0030372be0d1c9e.setIcon(icon_e82576e252305a03ca704e5d1b481a90);
+            
+    
+            var marker_a738d882c65f10f766b9426ffeb53045 = L.marker(
+                [32.614704508412, -117.02389544315201],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_f51863e4bdb5734e8adf8d44c38b9ee7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e572afca587cbc5e020b0d0eaf2464f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0075a8635ba7eb643b59563359909b2a = $(`<div id="html_0075a8635ba7eb643b59563359909b2a" style="width: 100.0%; height: 100.0%;">             <b>Sunbow</b><br>             Average Price: $208<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_e572afca587cbc5e020b0d0eaf2464f8.setContent(html_0075a8635ba7eb643b59563359909b2a);
+            
+        
+
+        marker_a738d882c65f10f766b9426ffeb53045.bindPopup(popup_e572afca587cbc5e020b0d0eaf2464f8)
+        ;
+
+        
+    
+    
+            marker_a738d882c65f10f766b9426ffeb53045.bindTooltip(
+                `<div>
+                     Sunbow: $208
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a738d882c65f10f766b9426ffeb53045.setIcon(icon_f51863e4bdb5734e8adf8d44c38b9ee7);
+            
+    
+            var marker_cc0bd2830dd56aae5a6e8cd1d9863561 = L.marker(
+                [32.76112667392341, -117.09058800279057],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_5ad4c26dd6f29b00c69c33320f48e5f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f6807d327b00226876904cbcf665ce1a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef190f8f2cd9ed1573ad7833ab254dfb = $(`<div id="html_ef190f8f2cd9ed1573ad7833ab254dfb" style="width: 100.0%; height: 100.0%;">             <b>Talmadge</b><br>             Average Price: $164<br>             Average Rating: 4.87/5.0             </div>`)[0];
+                popup_f6807d327b00226876904cbcf665ce1a.setContent(html_ef190f8f2cd9ed1573ad7833ab254dfb);
+            
+        
+
+        marker_cc0bd2830dd56aae5a6e8cd1d9863561.bindPopup(popup_f6807d327b00226876904cbcf665ce1a)
+        ;
+
+        
+    
+    
+            marker_cc0bd2830dd56aae5a6e8cd1d9863561.bindTooltip(
+                `<div>
+                     Talmadge: $164
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc0bd2830dd56aae5a6e8cd1d9863561.setIcon(icon_5ad4c26dd6f29b00c69c33320f48e5f0);
+            
+    
+            var marker_1abc39a1c5a4f9ff30669448ba21d46d = L.marker(
+                [32.64398026666667, -117.04395863333333],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_6302d77dfdc7c2c41dc6b87b2528185d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16b213a8f8ce4edbaa0445bee3510527 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc8594c6b10dd44a61c85b219721e038 = $(`<div id="html_cc8594c6b10dd44a61c85b219721e038" style="width: 100.0%; height: 100.0%;">             <b>Terra Nova</b><br>             Average Price: $240<br>             Average Rating: 4.74/5.0             </div>`)[0];
+                popup_16b213a8f8ce4edbaa0445bee3510527.setContent(html_cc8594c6b10dd44a61c85b219721e038);
+            
+        
+
+        marker_1abc39a1c5a4f9ff30669448ba21d46d.bindPopup(popup_16b213a8f8ce4edbaa0445bee3510527)
+        ;
+
+        
+    
+    
+            marker_1abc39a1c5a4f9ff30669448ba21d46d.bindTooltip(
+                `<div>
+                     Terra Nova: $240
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1abc39a1c5a4f9ff30669448ba21d46d.setIcon(icon_6302d77dfdc7c2c41dc6b87b2528185d);
+            
+    
+            var marker_90985773c7a59b23430154c7a6d6988d = L.marker(
+                [32.8308206270874, -117.09914304704238],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_95bc184407550b40159668ad55895dbe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_828441f0147952b0f10a0b05a121455b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a2307a00ca0f77c8168c61973088b811 = $(`<div id="html_a2307a00ca0f77c8168c61973088b811" style="width: 100.0%; height: 100.0%;">             <b>Tierrasanta</b><br>             Average Price: $208<br>             Average Rating: 4.44/5.0             </div>`)[0];
+                popup_828441f0147952b0f10a0b05a121455b.setContent(html_a2307a00ca0f77c8168c61973088b811);
+            
+        
+
+        marker_90985773c7a59b23430154c7a6d6988d.bindPopup(popup_828441f0147952b0f10a0b05a121455b)
+        ;
+
+        
+    
+    
+            marker_90985773c7a59b23430154c7a6d6988d.bindTooltip(
+                `<div>
+                     Tierrasanta: $208
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_90985773c7a59b23430154c7a6d6988d.setIcon(icon_95bc184407550b40159668ad55895dbe);
+            
+    
+            var marker_58fdd210fac4aed62910fad7280b349d = L.marker(
+                [32.54076, -117.05359],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_66e0c2c872bc426bc5618ba657990489 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8f323cd372e44f926d30d0f3db819758 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79b14a3b0cfc5a26d465c1630800ca50 = $(`<div id="html_79b14a3b0cfc5a26d465c1630800ca50" style="width: 100.0%; height: 100.0%;">             <b>Tijuana River Valley</b><br>             Average Price: $30<br>             Average Rating: 4.79/5.0             </div>`)[0];
+                popup_8f323cd372e44f926d30d0f3db819758.setContent(html_79b14a3b0cfc5a26d465c1630800ca50);
+            
+        
+
+        marker_58fdd210fac4aed62910fad7280b349d.bindPopup(popup_8f323cd372e44f926d30d0f3db819758)
+        ;
+
+        
+    
+    
+            marker_58fdd210fac4aed62910fad7280b349d.bindTooltip(
+                `<div>
+                     Tijuana River Valley: $30
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_58fdd210fac4aed62910fad7280b349d.setIcon(icon_66e0c2c872bc426bc5618ba657990489);
+            
+    
+            var marker_0eef798ddcb4a583d7075bb5dc02deeb = L.marker(
+                [32.892702722757285, -117.24653007000492],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_05e1a4f8dc75e7321adfd633c156e591 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ceb28f7e29cbdf8b91c963d22e510481 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6ac2dade1c031a7344d089baff36ba3 = $(`<div id="html_f6ac2dade1c031a7344d089baff36ba3" style="width: 100.0%; height: 100.0%;">             <b>Torrey Pines</b><br>             Average Price: $543<br>             Average Rating: 4.85/5.0             </div>`)[0];
+                popup_ceb28f7e29cbdf8b91c963d22e510481.setContent(html_f6ac2dade1c031a7344d089baff36ba3);
+            
+        
+
+        marker_0eef798ddcb4a583d7075bb5dc02deeb.bindPopup(popup_ceb28f7e29cbdf8b91c963d22e510481)
+        ;
+
+        
+    
+    
+            marker_0eef798ddcb4a583d7075bb5dc02deeb.bindTooltip(
+                `<div>
+                     Torrey Pines: $543
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0eef798ddcb4a583d7075bb5dc02deeb.setIcon(icon_05e1a4f8dc75e7321adfd633c156e591);
+            
+    
+            var marker_48d872ff56a0d10ec405255d5263d803 = L.marker(
+                [32.860759277778556, -117.21345739869496],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_5e57cb6c7fc03f88b0e8986090ce6cbe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cfc1ecd2b9d3509afe5da54012a88b0a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e902f2bacdcd3d8dc6888529a0c7e6e = $(`<div id="html_8e902f2bacdcd3d8dc6888529a0c7e6e" style="width: 100.0%; height: 100.0%;">             <b>University City</b><br>             Average Price: $225<br>             Average Rating: 4.85/5.0             </div>`)[0];
+                popup_cfc1ecd2b9d3509afe5da54012a88b0a.setContent(html_8e902f2bacdcd3d8dc6888529a0c7e6e);
+            
+        
+
+        marker_48d872ff56a0d10ec405255d5263d803.bindPopup(popup_cfc1ecd2b9d3509afe5da54012a88b0a)
+        ;
+
+        
+    
+    
+            marker_48d872ff56a0d10ec405255d5263d803.bindTooltip(
+                `<div>
+                     University City: $225
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_48d872ff56a0d10ec405255d5263d803.setIcon(icon_5e57cb6c7fc03f88b0e8986090ce6cbe);
+            
+    
+            var marker_5920861ba458d27cca84a16b13474f10 = L.marker(
+                [32.70240448516209, -117.07919926279072],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_9984a194b163c366cce47cbe82ee9b12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f24c58bd1193e945617aa019c4800d9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e050cc4d2fab59264f8a83cbb1da3dc = $(`<div id="html_9e050cc4d2fab59264f8a83cbb1da3dc" style="width: 100.0%; height: 100.0%;">             <b>Valencia Park</b><br>             Average Price: $143<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_2f24c58bd1193e945617aa019c4800d9.setContent(html_9e050cc4d2fab59264f8a83cbb1da3dc);
+            
+        
+
+        marker_5920861ba458d27cca84a16b13474f10.bindPopup(popup_2f24c58bd1193e945617aa019c4800d9)
+        ;
+
+        
+    
+    
+            marker_5920861ba458d27cca84a16b13474f10.bindTooltip(
+                `<div>
+                     Valencia Park: $143
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5920861ba458d27cca84a16b13474f10.setIcon(icon_9984a194b163c366cce47cbe82ee9b12);
+            
+    
+            var marker_c176d08e0c18e11b135907db10616ec5 = L.marker(
+                [32.726611513649786, -117.09258142775973],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_7b773e414d2dd57bb815763baba408ab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b7c9299420963a4bcd9578185cff8b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c23e23bbfba073d378885eb0d758187 = $(`<div id="html_6c23e23bbfba073d378885eb0d758187" style="width: 100.0%; height: 100.0%;">             <b>Webster</b><br>             Average Price: $269<br>             Average Rating: 4.91/5.0             </div>`)[0];
+                popup_5b7c9299420963a4bcd9578185cff8b1.setContent(html_6c23e23bbfba073d378885eb0d758187);
+            
+        
+
+        marker_c176d08e0c18e11b135907db10616ec5.bindPopup(popup_5b7c9299420963a4bcd9578185cff8b1)
+        ;
+
+        
+    
+    
+            marker_c176d08e0c18e11b135907db10616ec5.bindTooltip(
+                `<div>
+                     Webster: $269
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c176d08e0c18e11b135907db10616ec5.setIcon(icon_7b773e414d2dd57bb815763baba408ab);
+            
+    
+            var marker_fde75b8870efa486461f665e8d3f90e0 = L.marker(
+                [32.75868158919239, -117.14892388419068],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_24410a8010f9eaf4b30d135930463cce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_57fc792aa1863297f022a827bef0e9ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8241a9d778aa05128b7b60cf05d70266 = $(`<div id="html_8241a9d778aa05128b7b60cf05d70266" style="width: 100.0%; height: 100.0%;">             <b>West University Heights</b><br>             Average Price: $209<br>             Average Rating: 4.86/5.0             </div>`)[0];
+                popup_57fc792aa1863297f022a827bef0e9ff.setContent(html_8241a9d778aa05128b7b60cf05d70266);
+            
+        
+
+        marker_fde75b8870efa486461f665e8d3f90e0.bindPopup(popup_57fc792aa1863297f022a827bef0e9ff)
+        ;
+
+        
+    
+    
+            marker_fde75b8870efa486461f665e8d3f90e0.bindTooltip(
+                `<div>
+                     West University Heights: $209
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fde75b8870efa486461f665e8d3f90e0.setIcon(icon_24410a8010f9eaf4b30d135930463cce);
+            
+    
+            var marker_330ae96f3c8e493b4b7456b04a4995c1 = L.marker(
+                [32.71740951952467, -117.24254614851192],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_590f236a183105b66d5689928098d9ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_465ceb09331b4f356329505dfedd26b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a30a74aa5210b80163c1d25c3a966ea = $(`<div id="html_8a30a74aa5210b80163c1d25c3a966ea" style="width: 100.0%; height: 100.0%;">             <b>Wooded Area</b><br>             Average Price: $419<br>             Average Rating: 4.83/5.0             </div>`)[0];
+                popup_465ceb09331b4f356329505dfedd26b6.setContent(html_8a30a74aa5210b80163c1d25c3a966ea);
+            
+        
+
+        marker_330ae96f3c8e493b4b7456b04a4995c1.bindPopup(popup_465ceb09331b4f356329505dfedd26b6)
+        ;
+
+        
+    
+    
+            marker_330ae96f3c8e493b4b7456b04a4995c1.bindTooltip(
+                `<div>
+                     Wooded Area: $419
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_330ae96f3c8e493b4b7456b04a4995c1.setIcon(icon_590f236a183105b66d5689928098d9ad);
+            
+    
+            var marker_2a4c84334580d97f3a0b087f6b6651c0 = L.marker(
+                [32.649295, -116.95017],
+                {
+}
+            ).addTo(map_d7c795685e420bb09f785d8e36351ea1);
+        
+    
+            var icon_887eba1cf0b95c38b767521fae19a930 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab09191b60ed1289bf14bcc65b983bcd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74d8de41741be5f6b65e5fe6af6ed912 = $(`<div id="html_74d8de41741be5f6b65e5fe6af6ed912" style="width: 100.0%; height: 100.0%;">             <b>Yosemite Dr</b><br>             Average Price: $87<br>             Average Rating: 4.95/5.0             </div>`)[0];
+                popup_ab09191b60ed1289bf14bcc65b983bcd.setContent(html_74d8de41741be5f6b65e5fe6af6ed912);
+            
+        
+
+        marker_2a4c84334580d97f3a0b087f6b6651c0.bindPopup(popup_ab09191b60ed1289bf14bcc65b983bcd)
+        ;
+
+        
+    
+    
+            marker_2a4c84334580d97f3a0b087f6b6651c0.bindTooltip(
+                `<div>
+                     Yosemite Dr: $87
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2a4c84334580d97f3a0b087f6b6651c0.setIcon(icon_887eba1cf0b95c38b767521fae19a930);
+            
+</script>
+</html>
