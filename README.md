@@ -54,7 +54,6 @@ san-diego-housing/
 │   ├── *.png              # Static visualizations
 │   ├── *.html             # Interactive maps
 │   └── *.json             # Analysis results and model metrics
-├── notebooks/              # Jupyter notebooks for exploration
 ├── requirements.txt        # Python dependencies
 └── README.md              # This file
 ```
@@ -129,7 +128,6 @@ san-diego-housing/
 ### **Static Visualizations**
 - `market_analysis_plots.png`: 4-panel market overview
 - `price_analysis_plots.png`: Price distribution and correlation analysis
-- `executive_summary_dashboard.png`: 8-panel executive dashboard
 
 ### **Interactive Maps**
 - `san_diego_price_heatmap.html`: Price distribution heatmap
@@ -200,6 +198,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-**Last Updated**: July 2025  
+**Last Updated**: January 2026  
 **Data Sources**: Airbnb San Diego Dataset  
 **Analysis Type**: Comprehensive Market Analysis with Predictive Modeling 
