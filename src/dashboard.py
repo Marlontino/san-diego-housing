@@ -115,7 +115,7 @@ with right:
     st.subheader("Price distribution")
     bins = pd.cut(view["price"], bins=30)
     hist = (
-        view.assign(_bin_mid=bins.apply(lambda iv: iv.mid).astype(float))
+        view.assign(_bin_mid=bins.apply(lambda iv: round(float(iv.mid), 2)))
         .groupby("_bin_mid")
         .size()
         .rename("Listings")
