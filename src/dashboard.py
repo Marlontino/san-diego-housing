@@ -44,13 +44,15 @@ picked_neighborhoods = st.sidebar.multiselect(
     help="Choose one or more San Diego neighborhoods.",
 )
 
-price_min, price_max = int(df["price"].min()), int(df["price"].max())
+price_min = int(df["price"].min())
+price_slider_cap = 1000
 price_range = st.sidebar.slider(
     "Nightly price ($)",
     min_value=price_min,
-    max_value=price_max,
-    value=(price_min, min(price_max, 500)),
+    max_value=price_slider_cap,
+    value=(price_min, min(price_slider_cap, 500)),
     step=10,
+    help=f"Listings above ${price_slider_cap} are excluded from the slider range.",
 )
 
 room_types = sorted(df["room_type"].unique())
@@ -97,8 +99,17 @@ with left:
         view.groupby("neighbourhood_cleansed")["price"]
         .median()
         .sort_values(ascending=False)
+        .rename("Median nightly price ($)")
+        .reset_index()
+        .rename(columns={"neighbourhood_cleansed": "Neighborhood"})
     )
-    st.bar_chart(by_nbhd)
+    st.bar_chart(
+        by_nbhd,
+        x="Neighborhood",
+        y="Median nightly price ($)",
+        x_label="Neighborhood",
+        y_label="Median nightly price ($)",
+    )
 
 with right:
     st.subheader("Price distribution")
@@ -107,9 +118,17 @@ with right:
         view.assign(_bin_mid=bins.apply(lambda iv: iv.mid).astype(float))
         .groupby("_bin_mid")
         .size()
-        .rename("listings")
+        .rename("Listings")
+        .reset_index()
+        .rename(columns={"_bin_mid": "Nightly price ($)"})
     )
-    st.bar_chart(hist)
+    st.bar_chart(
+        hist,
+        x="Nightly price ($)",
+        y="Listings",
+        x_label="Nightly price ($)",
+        y_label="Number of listings",
+    )
 
 st.subheader("Listings map")
 st.map(view.rename(columns={"latitude": "lat", "longitude": "lon"})[["lat", "lon"]])
