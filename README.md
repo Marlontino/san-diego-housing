@@ -10,6 +10,8 @@ This is a comprehensive data analysis project examining the San Diego Airbnb mar
 ## 🚀 Features
 
 ### **Modular Architecture**
+- **`src/preprocessing.py`**: Documented, auditable data-cleaning pipeline (missing data, outliers, categorical normalization)
+- **`src/dashboard.py`**: Streamlit interactive web app for neighborhood/price exploration
 - **`src/data_summary.py`**: Comprehensive data analysis and executive summaries
 - **`src/visualizations.py`**: Advanced plotting with matplotlib and interactive maps
 - **`src/predictive_model.py`**: Machine learning models for price prediction
@@ -60,8 +62,14 @@ san-diego-housing/
 
 ## 🛠️ Setup Instructions
 
-1. **Install Python dependencies:**
+1. **Create a virtual environment and install dependencies:**
    ```bash
+   python -m venv venv
+   # macOS / Linux
+   source venv/bin/activate
+   # Windows (PowerShell)
+   .\venv\Scripts\Activate.ps1
+
    pip install -r requirements.txt
    ```
 
@@ -72,7 +80,17 @@ san-diego-housing/
    - neighbourhoods.csv
    - neighbourhoods.geojson
 
-3. **Run the complete analysis:**
+3. **Run the cleaning pipeline** (writes `data/listings_clean.csv`):
+   ```bash
+   python src/preprocessing.py
+   ```
+
+4. **Launch the interactive dashboard:**
+   ```bash
+   streamlit run src/dashboard.py
+   ```
+
+5. **Or run the full batch analysis:**
    ```bash
    python src/main.py
    ```
@@ -99,6 +117,67 @@ san-diego-housing/
 - **Model Training**: Random Forest regression with hyperparameter optimization
 - **Performance Evaluation**: Multiple accuracy metrics and detailed breakdowns
 - **Feature Importance**: Identifies key factors affecting pricing decisions
+
+## 🧹 Data Cleaning Methodology
+
+Data analytics is 80% data cleaning. The full pipeline lives in [`src/preprocessing.py`](src/preprocessing.py) and is intentionally explicit so a reviewer can audit every row that was dropped or imputed. Running it prints a step-by-step report:
+
+```
+rows_raw                            12,959
+dropped_missing_critical             1,355
+rows_after_imputation               11,604
+dropped_price_outliers                 884
+property_types_collapsed_to_other       39
+rows_final                          10,720
+price_median                         $197
+price_mean                           $341
+```
+
+### 1. Missing data — drop vs. impute
+Different fields warrant different treatment:
+
+- **Drop** rows missing `price`, `neighbourhood_cleansed`, `latitude`, `longitude`, or `room_type`. These are load-bearing for any downstream analysis and we refuse to fabricate them.
+- **Impute** structural fields (`bedrooms`, `beds`, `bathrooms`) with the **median for the listing's `property_type`**. A missing bedroom count on a "Condominium" is filled from the median condo, not from the global median across treehouses and yachts. Falls back to global median if a property type has no observations.
+- **Impute** review scores with the column median. These are legitimately blank for brand-new listings with zero reviews — dropping would bias the dataset toward established hosts.
+
+### 2. Statistical outlier filtering — per-neighborhood IQR
+A single $50M La Jolla mansion will drag La Jolla's "average" upward *and* drag the all-San-Diego average upward. To prevent this we apply the **IQR rule per neighborhood**: for each neighborhood, compute Q1 and Q3 of price, then drop listings outside `[Q1 − 1.5·IQR, Q3 + 1.5·IQR]`.
+
+Why per-neighborhood and not global? A $1,200/night listing is an outlier in North Hills (where the median is ~$190) but completely normal in La Jolla (where it's a mid-range beachfront rental). A global filter would either lose La Jolla's high-end inventory or fail to catch obvious data errors in cheaper neighborhoods. 884 listings (~7%) were filtered this way; the `iqr_multiplier` is a parameter, so you can loosen to 3.0 if you want to keep more high-end inventory.
+
+We also drop any listing with `price = $0` (placeholder entries, not real listings).
+
+### 3. Categorical normalization
+- Strip whitespace and standardize casing on `neighbourhood_cleansed`, `room_type`, and `property_type`.
+- Collapse rare `property_type` values (fewer than 50 listings — 39 categories like "Tipi" or "Yurt") into a single `"Other"` bucket. This keeps the dashboard's category filter and charts readable instead of showing a long tail of one-off types.
+
+### Designed to be re-run
+`preprocess()` takes parameters (`iqr_multiplier`, `rare_property_threshold`, `verbose`) and returns both the cleaned DataFrame and a report dict, so the dashboard and any notebooks share a single source of truth.
+
+## 📊 Interactive Dashboard
+
+The static charts in `results/` are great for a one-shot report, but a business stakeholder usually wants to filter the data themselves. [`src/dashboard.py`](src/dashboard.py) wraps the cleaning pipeline in a [Streamlit](https://streamlit.io) app with:
+
+- **Neighborhood multiselect** (101 distinct neighborhoods — multiselect is more usable than a slider for an unordered categorical)
+- **Nightly price slider** ($ range)
+- **Room type** and **minimum bedrooms** filters
+- **Live KPIs**: listing count, median price, mean price, average review score — all recompute as filters change
+- **Median price by neighborhood** bar chart
+- **Price distribution** histogram
+- **Geographic map** of filtered listings
+
+### Run locally
+```bash
+streamlit run src/dashboard.py
+```
+Then open http://localhost:8501.
+
+### Deploy free on Streamlit Community Cloud
+1. Push this repo to GitHub.
+2. Sign in at [share.streamlit.io](https://share.streamlit.io) with your GitHub account.
+3. Click **New app** and point it at `src/dashboard.py` on the `main` branch.
+4. Streamlit installs from `requirements.txt` automatically. First boot takes ~2 minutes.
+5. Paste the resulting URL into your GitHub profile README so visitors can click straight through to the live app.
 
 ## 🎯 Key Insights
 
