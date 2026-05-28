@@ -152,7 +152,7 @@ We also drop any listing with `price = $0` (placeholder entries, not real listin
 - Collapse rare `property_type` values (fewer than 50 listings — 39 categories like "Tipi" or "Yurt") into a single `"Other"` bucket. This keeps the dashboard's category filter and charts readable instead of showing a long tail of one-off types.
 
 ### Designed to be re-run
-`preprocess()` takes parameters (`iqr_multiplier`, `rare_property_threshold`, `verbose`) and returns both the cleaned DataFrame and a report dict, so the dashboard and any notebooks share a single source of truth.
+`preprocess()` takes parameters (`iqr_multiplier`, `rare_property_threshold`, `verbose`) and returns both the cleaned DataFrame and a report dict, so the dashboard and batch pipeline share a single source of truth.
 
 ## 📊 Interactive Dashboard
 
@@ -250,18 +250,12 @@ run_predictive_analysis(listings)
 
 ## 📋 Requirements
 
-### **Core Dependencies**
 - pandas: Data manipulation and analysis
 - numpy: Numerical computing
-- matplotlib: Static visualizations
-- seaborn: Enhanced plotting
+- matplotlib / seaborn: Static visualizations
 - folium: Interactive mapping
-- scikit-learn: Machine learning models
-
-### **Optional Dependencies**
-- jupyter: Notebook interface
-- plotly: Interactive plots
-- geopandas: Geographic data analysis
+- scikit-learn: Random Forest pricing model
+- streamlit: Interactive dashboard
 
 ## 🤝 Contributing
 
